@@ -21,6 +21,25 @@ public class SnakeController : MonoBehaviour {
         GrowSnake();
         GrowSnake();
         GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
+
     }
 
     private void Update() 
