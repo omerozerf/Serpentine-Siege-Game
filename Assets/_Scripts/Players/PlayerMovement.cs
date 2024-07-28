@@ -1,45 +1,34 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
-public class PlayerMovement : MonoBehaviour
+namespace Players
 {
-    private Vector2 touchStartPos;
-    private Vector2 touchCurrentPos;
-    private bool isTouching = false;
-
-    private void Update()
+    public class PlayerMovement : MonoBehaviour
     {
-        // Dokunma algılama
-        if (Input.touchCount > 0)
+        [SerializeField] private Joystick _joystick;
+        [SerializeField] private float _moveSpeed;
+        [SerializeField] private float _minX;
+        [SerializeField] private float _maxX;
+        [SerializeField] private float _minZ;
+        [SerializeField] private float _maxZ;
+
+        private void Update()
         {
-            Touch touch = Input.GetTouch(0);
+            float moveHorizontal = _joystick.Horizontal;
+            float moveVertical = _joystick.Vertical;
 
-            if (touch.phase == TouchPhase.Began)
-            {
-                // Dokunma başladığında pozisyonu kaydet
-                touchStartPos = touch.position;
-                isTouching = true;
-            }
-            else if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
-            {
-                // Dokunma hareket ettiğinde veya sabit durduğunda pozisyonu güncelle
-                touchCurrentPos = touch.position;
-
-                // Karakteri parmağın x ekseninde hareket ettir
-                MoveCharacterToTouchPosition();
-            }
-            else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
-            {
-                isTouching = false;
-            }
+            MoveCharacter(moveHorizontal, moveVertical);
         }
-    }
 
-    private void MoveCharacterToTouchPosition()
-    {
-        // Parmağın x pozisyonunu dünya koordinatlarına çevir
-        float touchXWorldPos = Camera.main.ScreenToWorldPoint(new Vector3(touchCurrentPos.x, touchCurrentPos.y, Camera.main.nearClipPlane)).x;
-        
-        // Karakterin x pozisyonunu parmağın x pozisyonuna ayarla
-        transform.position = new Vector3(touchXWorldPos, transform.position.y, transform.position.z);
+        private void MoveCharacter(float moveHorizontal, float moveVertical)
+        {
+            Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical) * (_moveSpeed * Time.deltaTime);
+            Vector3 newPosition = transform.position + movement;
+
+            newPosition.x = Mathf.Clamp(newPosition.x, _minX, _maxX);
+            newPosition.z = Mathf.Clamp(newPosition.z, _minZ, _maxZ);
+
+            transform.position = newPosition;
+        }
     }
 }
