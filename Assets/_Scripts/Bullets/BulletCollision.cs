@@ -1,4 +1,5 @@
 ﻿using System;
+using Enemys;
 using Enemys.EnemyBodyParts;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -36,9 +37,9 @@ namespace Bullets
         private void HandleCollision(Collider hitCollider)
         {
             EnemyBodyPartCollision enemyBodyPartCollision  = hitCollider.GetComponent<EnemyBodyPartCollision>();
-            Debug.Log($"Çarpışma: {enemyBodyPartCollision.GetEnemyBodyPart().name}");
             
-            Destroy(enemyBodyPartCollision.GetEnemyBodyPart().gameObject);
+            EnemyBodyPartFollowManager.HitBodyPart(enemyBodyPartCollision.GetEnemyBodyPart());
+            
             Destroy(_bullet.gameObject);
         }
         

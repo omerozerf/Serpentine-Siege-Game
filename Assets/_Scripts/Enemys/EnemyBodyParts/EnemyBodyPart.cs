@@ -30,5 +30,10 @@ namespace Enemys.EnemyBodyParts
         {
             return _pathFollower;
         }
+
+        public void DestroySelf(float delay = 0)
+        {
+            Destroy(gameObject, delay);
+        }
     }
 }
