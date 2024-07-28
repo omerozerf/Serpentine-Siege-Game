@@ -6,6 +6,6 @@ namespace Enemys
     public class Enemy : MonoBehaviour
     {
         [FormerlySerializedAs("_enemyMovement")] [SerializeField] private EnemyMover _enemyMover;
-        [SerializeField] private EnemyBodyPartFollower _enemyBodyPartFollower;
+        [FormerlySerializedAs("_enemyBodyPartFollower")] [SerializeField] private EnemyBodyPartFollowManager _enemyBodyPartFollowManager;
     }
 }

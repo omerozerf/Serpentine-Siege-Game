@@ -1,5 +1,7 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using Enemys.EnemyBodyParts;
+using PathCreation;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -9,14 +11,16 @@ namespace _Controllers
     {
         [SerializeField] private EnemyBodyPart[] _enemyBodyPartPrefabArray;
         [SerializeField] private Transform _enemyBodyPartsParent;
+        [SerializeField] private PathCreator _pathCreator;
     
         public event Action<EnemyBodyPart> OnEnemyBodyPartCreated;
 
 
-        private void Start()
+        private async void Start()
         {
             for (int index = 0; index < 50; index++)
             {
+                await UniTask.WaitForSeconds(0.75f);
                 CreateEnemyBodyPart(Vector3.one * 999, Quaternion.identity, _enemyBodyPartsParent, index);
             }
         }
@@ -25,6 +29,7 @@ namespace _Controllers
         private EnemyBodyPart CreateEnemyBodyPart(Vector3 position, Quaternion rotation, Transform parent, int index)
         {
             EnemyBodyPart enemyBodyPart = Instantiate(GetRandomEnemyBodyPartPrefab(), position, rotation, parent);
+            enemyBodyPart.SetPathCreator(_pathCreator);
             enemyBodyPart.name = $"Enemy Body Part - {index}";
             
             OnEnemyBodyPartCreated?.Invoke(enemyBodyPart);
