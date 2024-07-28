@@ -3,7 +3,7 @@ using UnityEngine.Serialization;
 
 namespace Players
 {
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerMover : MonoBehaviour
     {
         [SerializeField] private Joystick _joystick;
         [SerializeField] private float _moveSpeed;

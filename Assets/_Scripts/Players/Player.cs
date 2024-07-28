@@ -1,10 +1,11 @@
 using Enemys;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Players
 {
     public class Player : MonoBehaviour
     {
-        [SerializeField] private PlayerMovement _playerMovement;
+        [FormerlySerializedAs("_playerMovement")] [SerializeField] private PlayerMover _playerMover;
     }
 }
