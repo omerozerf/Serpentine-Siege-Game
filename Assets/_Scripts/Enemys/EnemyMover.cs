@@ -2,7 +2,7 @@
 
 namespace Enemys
 {
-    public class EnemyMovement : MonoBehaviour
+    public class EnemyMover : MonoBehaviour
     {
         [SerializeField] private Enemy _enemy;
         [SerializeField] private float _moveSpeed = 5;

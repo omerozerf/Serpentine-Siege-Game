@@ -1,11 +1,13 @@
 using System.Collections.Generic;
+using Enemys.EnemyBodyParts;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Enemys
 {
     public class EnemyBodyPartFollower : MonoBehaviour 
     {
-        [SerializeField] private EnemyBodyPartCreator _enemyBodyPartCreator;
+        [FormerlySerializedAs("_enemyBodyPartCreator")] [SerializeField] private EnemyBodyPartCreateController _enemyBodyPartCreateController;
         [SerializeField] private Enemy _enemy;
         [SerializeField] private float _steerSpeed = 180;
         [SerializeField] private float _bodySpeed = 5;
@@ -17,7 +19,7 @@ namespace Enemys
 
         private void Awake()
         {
-            _enemyBodyPartCreator.OnEnemyBodyPartCreated += OnEnemyBodyPartCreated;
+            _enemyBodyPartCreateController.OnEnemyBodyPartCreated += OnEnemyBodyPartCreated;
         }
     
         private void Update()
@@ -27,7 +29,7 @@ namespace Enemys
     
         private void OnDestroy()
         {
-            _enemyBodyPartCreator.OnEnemyBodyPartCreated -= OnEnemyBodyPartCreated;
+            _enemyBodyPartCreateController.OnEnemyBodyPartCreated -= OnEnemyBodyPartCreated;
         }
     
     

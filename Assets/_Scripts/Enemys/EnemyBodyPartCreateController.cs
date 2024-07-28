@@ -1,9 +1,10 @@
 ﻿using System;
+using Enemys.EnemyBodyParts;
 using UnityEngine;
 
 namespace Enemys
 {
-    public class EnemyBodyPartCreator : MonoBehaviour
+    public class EnemyBodyPartCreateController : MonoBehaviour
     {
         [SerializeField] private EnemyBodyPart _enemyBodyPartPrefab;
         [SerializeField] private Transform _enemyBodyPartsParent;
@@ -13,16 +14,18 @@ namespace Enemys
 
         private void Start()
         {
-            for (int i = 0; i < 50; i++)
+            for (int index = 0; index < 50; index++)
             {
-                CreateEnemyBodyPart(Vector3.zero, Quaternion.identity, _enemyBodyPartsParent);
+                CreateEnemyBodyPart(Vector3.zero, Quaternion.identity, _enemyBodyPartsParent, index);
             }
         }
 
 
-        private EnemyBodyPart CreateEnemyBodyPart(Vector3 position, Quaternion rotation, Transform parent)
+        private EnemyBodyPart CreateEnemyBodyPart(Vector3 position, Quaternion rotation, Transform parent, int index)
         {
             EnemyBodyPart enemyBodyPart = Instantiate(_enemyBodyPartPrefab, position, rotation, parent);
+            enemyBodyPart.name = $"Enemy Body Part - {index}";
+            
             OnEnemyBodyPartCreated?.Invoke(enemyBodyPart);
         
             return enemyBodyPart;
