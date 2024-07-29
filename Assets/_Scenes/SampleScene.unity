@@ -813,6 +813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyBodyPartCreateController: {fileID: 198279459}
+  _enemyBodyPartHead: {fileID: 117390281}
 --- !u!4 &975900482
 Transform:
   m_ObjectHideFlags: 0
