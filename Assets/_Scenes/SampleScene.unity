@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 114462759382663819}
   endOfPathInstruction: 1
-  speed: 5
+  speed: 7
   distanceTravelled: 0
 --- !u!114 &117390281
 MonoBehaviour:
@@ -187,6 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyBodyPartCollision: {fileID: 358795926}
   _pathFollower: {fileID: 117390280}
+  _isHead: 1
 --- !u!1 &198279458
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &349727442
 Transform:
   m_ObjectHideFlags: 0
@@ -352,7 +353,7 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 1595059336273208102, guid: 563fe69f5232c27458f49a5af166421c,
     type: 3}
   _bulletSpawnPoint: {fileID: 383715329}
-  _fireRate: 0.5
+  _fireRate: 5
 --- !u!1 &358795923
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,6 +422,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyBodyPart: {fileID: 117390281}
+  _collisionMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &383715328
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,8 +1544,26 @@ MonoBehaviour:
       - {x: -5.7071066, y: 0, z: -69.29289}
       - {x: -5, y: 0, z: -70}
       - {x: -3.5857863, y: 0, z: -71.414215}
-      - {x: 0.7071068, y: 0, z: -70.70711}
+      - {x: 3.5857863, y: 0, z: -68.585785}
       - {x: 5, y: 0, z: -70}
+      - {x: 5.7071066, y: 0, z: -70.70711}
+      - {x: 5.7071066, y: 0, z: -74.29289}
+      - {x: 5, y: 0, z: -75}
+      - {x: 3.5857863, y: 0, z: -76.414215}
+      - {x: -3.5857863, y: 0, z: -73.585785}
+      - {x: -5, y: 0, z: -75}
+      - {x: -5.7071066, y: 0, z: -75.70711}
+      - {x: -5.7071066, y: 0, z: -79.29289}
+      - {x: -5, y: 0, z: -80}
+      - {x: -3.5857863, y: 0, z: -81.414215}
+      - {x: 3.5857863, y: 0, z: -78.585785}
+      - {x: 5, y: 0, z: -80}
+      - {x: 5.7071066, y: 0, z: -80.70711}
+      - {x: 5.7071066, y: 0, z: -84.29289}
+      - {x: 5, y: 0, z: -85}
+      - {x: 3.5857863, y: 0, z: -86.414215}
+      - {x: -0.7071068, y: 0, z: -85.70711}
+      - {x: -5, y: 0, z: -85}
       isClosed: 0
       space: 2
       controlMode: 3
@@ -1551,6 +1573,12 @@ MonoBehaviour:
         m_Center: {x: -0.03999996, y: 0, z: 170.62}
         m_Extent: {x: 2, y: 0.14433756, z: 0}
       perAnchorNormalsAngle:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
       - 0
       - 0
       - 0

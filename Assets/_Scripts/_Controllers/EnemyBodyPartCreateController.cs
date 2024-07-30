@@ -20,7 +20,7 @@ namespace _Controllers
         {
             for (int index = 0; index < 50; index++)
             {
-                await UniTask.WaitForSeconds(0.75f);
+                await UniTask.WaitForSeconds(0.715f);
                 CreateEnemyBodyPart(Vector3.one * 999, Quaternion.identity, _enemyBodyPartsParent, index);
             }
         }

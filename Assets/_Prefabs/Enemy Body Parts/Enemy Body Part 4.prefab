@@ -183,6 +183,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyBodyPart: {fileID: 4584968033221901038}
+  _collisionMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &9117428929720461223
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyBodyPartCollision: {fileID: 1259533314183564279}
   _pathFollower: {fileID: -1763557895672397105}
+  _isHead: 1
 --- !u!114 &-1763557895672397105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,5 +249,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 0}
   endOfPathInstruction: 0
-  speed: 5
+  speed: 7
   distanceTravelled: 0

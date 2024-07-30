@@ -38,8 +38,7 @@ namespace Bullets
         {
             EnemyBodyPartCollision enemyBodyPartCollision  = hitCollider.GetComponent<EnemyBodyPartCollision>();
             
-            EnemyBodyPartFollowManager.HitBodyPart(enemyBodyPartCollision.GetEnemyBodyPart());
-            
+            enemyBodyPartCollision.GetEnemyBodyPart().DestroySelf();
             Destroy(_bullet.gameObject);
         }
         

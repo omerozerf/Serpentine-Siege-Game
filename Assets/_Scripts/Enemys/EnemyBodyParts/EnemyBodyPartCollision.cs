@@ -6,16 +6,15 @@ namespace Enemys.EnemyBodyParts
     public class EnemyBodyPartCollision : MonoBehaviour
     {
         [SerializeField] private EnemyBodyPart _enemyBodyPart;
+        [SerializeField] private LayerMask _collisionMask;
 
         private float m_CheckTime;
         private bool isReversing = false;
 
-
         private void Update()
         {
-            Debug.Log(IsPathBlocked());
+            Debug.Log(IsPathBlocked() + " " + _enemyBodyPart.name);
         }
-
 
         public EnemyBodyPart GetEnemyBodyPart()
         {
@@ -24,17 +23,29 @@ namespace Enemys.EnemyBodyParts
 
         public bool IsPathBlocked()
         {
-            return Physics.Raycast(transform.position, -transform.forward, 2.5f) ||
-                   Physics.Raycast(transform.position, Quaternion.Euler(0, -35, 0) * -transform.forward, 2.5f) ||
-                   Physics.Raycast(transform.position, Quaternion.Euler(0, 35, 0) * -transform.forward, 2.5f);
+            RaycastHit hit;
+            // SphereCast yaparak belirli bir mesafede çakışma olup olmadığını kontrol et
+            if (Physics.SphereCast(transform.position, 1.5f, -transform.forward, out hit, 2.5f, _collisionMask, QueryTriggerInteraction.Ignore))
+            {
+                // Çakışan nesne kendimiz değilse true döndür
+                if (hit.collider.gameObject != gameObject)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.black;
-            Gizmos.DrawLine(transform.position, transform.position + -transform.forward * 2.5f);
-            Gizmos.DrawLine(transform.position, transform.position + Quaternion.Euler(0, -35, 0) * -transform.forward * 2.5f);
-            Gizmos.DrawLine(transform.position, transform.position + Quaternion.Euler(0, 35, 0) * -transform.forward * 2.5f);
+            Vector3 direction = -transform.forward * 2.5f;
+            Vector3 origin = transform.position;
+
+            // Küre çizimi
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(origin + direction * 0.8f, 1.5f);
         }
     }
 }

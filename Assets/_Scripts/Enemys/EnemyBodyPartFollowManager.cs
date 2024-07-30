@@ -37,72 +37,10 @@ namespace Enemys
         private void OnEnemyBodyPartCreated(EnemyBodyPart enemyBodyPart)
         {
             m_EnemyBodyPartList.Add(enemyBodyPart);
-        }
-
-        public static void HitBodyPart(EnemyBodyPart hitBodyPart)
-        {
-            hitBodyPart.DestroySelf();
+            int indexOf = m_EnemyBodyPartList.IndexOf(enemyBodyPart);
             
-            int hitIndex = ms_Instance.m_EnemyBodyPartList.IndexOf(hitBodyPart);
-            if (hitIndex == -1)
-            {
-                Debug.LogWarning("Hit body part not found in the list.");
-                return;
-            }
-
-            for (int i = 0; i < hitIndex; i++)
-            {
-                EnemyBodyPart bodyPart = ms_Instance.m_EnemyBodyPartList[i];
-                bodyPart.GetPathFollower().speed *= -1;
-            }
-
-            if (hitIndex > 0)
-            {
-                ms_Instance.StartCoroutine(ms_Instance.CheckPreviousBodyPartBlocked(hitIndex));
-            }
-        }
-
-        private IEnumerator CheckPreviousBodyPartBlocked(int hitIndex)
-        {
-            if (hitIndex <= 0 || hitIndex >= m_EnemyBodyPartList.Count)
-            {
-                Debug.LogWarning("Invalid hit index or out of range: " + hitIndex);
-                yield break;
-            }
-
-            EnemyBodyPart previousBodyPart = m_EnemyBodyPartList[hitIndex - 1];
-            if (previousBodyPart == null)
-            {
-                Debug.LogError("Previous body part is null at index: " + (hitIndex - 1));
-                yield break;
-            }
-
-            EnemyBodyPartCollision previousBodyPartCollision = previousBodyPart.GetEnemyBodyPartCollision();
-            if (previousBodyPartCollision == null)
-            {
-                Debug.LogError("EnemyBodyPartCollision component is missing on previous body part at index: " +
-                               (hitIndex - 1));
-                yield break;
-            }
-
-            for (int i = 0; i < hitIndex; i++)
-            {
-                EnemyBodyPart bodyPart = m_EnemyBodyPartList[i];
-                if (bodyPart == null)
-                {
-                    Debug.LogError("Body part is null at index: " + i);
-                    continue;
-                }
-
-                var pathFollower = bodyPart.GetPathFollower();
-                if (pathFollower == null)
-                {
-                    Debug.LogError("PathFollower component is missing on body part at index: " + i);
-                    continue;
-                }
-
-                pathFollower.speed = Mathf.Abs(pathFollower.speed);
-            }
+            EnemyBodyPart previousEnemyBodyPart = m_EnemyBodyPartList[indexOf - 1];
+            previousEnemyBodyPart.SetIsHead(false);
         }
     }
 }

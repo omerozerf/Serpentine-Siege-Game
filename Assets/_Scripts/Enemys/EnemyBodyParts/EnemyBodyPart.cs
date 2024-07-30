@@ -1,4 +1,5 @@
-﻿using PathCreation;
+﻿using System;
+using PathCreation;
 using PathCreation.Examples;
 using UnityEngine;
 
@@ -8,8 +9,30 @@ namespace Enemys.EnemyBodyParts
     {
         [SerializeField] private EnemyBodyPartCollision _enemyBodyPartCollision;
         [SerializeField] private PathFollower _pathFollower;
-        
-        
+        [SerializeField] private bool _isHead;
+
+        private bool m_HasMinusSpeed;
+
+        private void Update()
+        {
+            if (_isHead)
+            {
+                return;
+            }
+            
+            if (!_enemyBodyPartCollision.IsPathBlocked() && !m_HasMinusSpeed)
+            {
+                _pathFollower.speed *= -1;
+                m_HasMinusSpeed = true;
+            }
+            if (_enemyBodyPartCollision.IsPathBlocked() && m_HasMinusSpeed)
+            {
+                _pathFollower.speed = Mathf.Abs(_pathFollower.speed);
+                m_HasMinusSpeed = false;
+            }
+        }
+
+
         public Vector3 GetPosition()
         {
             return transform.position;
@@ -34,6 +57,11 @@ namespace Enemys.EnemyBodyParts
         public void DestroySelf(float delay = 0)
         {
             Destroy(gameObject, delay);
+        }
+        
+        public void SetIsHead(bool isHead)
+        {
+            _isHead = isHead;
         }
     }
 }
