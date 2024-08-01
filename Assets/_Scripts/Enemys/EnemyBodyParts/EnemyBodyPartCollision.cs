@@ -8,6 +8,8 @@ namespace Enemys.EnemyBodyParts
         [SerializeField] private EnemyBodyPart _enemyBodyPart;
         [SerializeField] private LayerMask _collisionMask;
 
+        public event Action OnShooted;
+        
         private float m_CheckTime;
         private bool isReversing = false;
 
@@ -19,6 +21,11 @@ namespace Enemys.EnemyBodyParts
         public EnemyBodyPart GetEnemyBodyPart()
         {
             return _enemyBodyPart;
+        }
+        
+        public void OnShoot()
+        {
+            OnShooted?.Invoke();
         }
 
         public bool IsPathBlocked()

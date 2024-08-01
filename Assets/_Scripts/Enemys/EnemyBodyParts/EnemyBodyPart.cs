@@ -8,6 +8,7 @@ namespace Enemys.EnemyBodyParts
     public class EnemyBodyPart : MonoBehaviour
     {
         [SerializeField] private EnemyBodyPartCollision _enemyBodyPartCollision;
+        [SerializeField] private EnemyBodyPartHealthSystem _enemyBodyPartHealthSystem;
         [SerializeField] private PathFollower _pathFollower;
         [SerializeField] private bool _isHead;
 
@@ -62,6 +63,11 @@ namespace Enemys.EnemyBodyParts
         public void SetIsHead(bool isHead)
         {
             _isHead = isHead;
+        }
+        
+        public EnemyBodyPartHealthSystem GetEnemyBodyPartHealthSystem()
+        {
+            return _enemyBodyPartHealthSystem;
         }
     }
 }

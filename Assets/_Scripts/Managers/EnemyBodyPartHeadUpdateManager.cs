@@ -8,12 +8,12 @@ using UnityEngine.Serialization;
 
 namespace Enemys
 {
-    public class EnemyBodyPartFollowManager : MonoBehaviour
+    public class EnemyBodyPartHeadUpdateManager : MonoBehaviour
     {
         [SerializeField] private EnemyBodyPartCreateController _enemyBodyPartCreateController;
         [SerializeField] private EnemyBodyPart _enemyBodyPartHead;
         
-        private static EnemyBodyPartFollowManager ms_Instance;
+        private static EnemyBodyPartHeadUpdateManager ms_Instance;
 
         private readonly List<EnemyBodyPart> m_EnemyBodyPartList = new();
         private readonly List<Vector3> m_PositionsHistoryList = new();

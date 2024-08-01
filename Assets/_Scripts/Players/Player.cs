@@ -7,5 +7,6 @@ namespace Players
     public class Player : MonoBehaviour
     {
         [FormerlySerializedAs("_playerMovement")] [SerializeField] private PlayerMover _playerMover;
+        [SerializeField] private PlayerLevelSystem _playerLevelSystem;
     }
 }

@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 7941874258774235936}
   - component: {fileID: 4584968033221901038}
   - component: {fileID: -1144959119812555843}
+  - component: {fileID: -6718761961907651456}
   m_Layer: 6
   m_Name: Enemy Body Part
   m_TagString: Untagged
@@ -233,6 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyBodyPartCollision: {fileID: 1259533314183564279}
+  _enemyBodyPartHealthSystem: {fileID: -6718761961907651456}
   _pathFollower: {fileID: -1144959119812555843}
   _isHead: 1
 --- !u!114 &-1144959119812555843
@@ -251,3 +253,17 @@ MonoBehaviour:
   endOfPathInstruction: 0
   speed: 7
   distanceTravelled: 0
+--- !u!114 &-6718761961907651456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9117428929720461223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 257f7964ce6ad694ab9888b4deb1938f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyBodyPart: {fileID: 4584968033221901038}
+  _health: 5
