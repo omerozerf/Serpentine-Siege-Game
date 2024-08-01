@@ -22,9 +22,9 @@ namespace Enemys.EnemyBodyParts
         }
     
     
-        private void OnShooted()
+        private void OnShooted(int damage)
         {
-            TakeDamage(1);
+            TakeDamage(damage);
             if (_health <= 0)
             {
                 _enemyBodyPart.DestroySelf();

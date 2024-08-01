@@ -1,4 +1,5 @@
 ﻿using System;
+using _Managers;
 using Enemys;
 using Enemys.EnemyBodyParts;
 using UnityEngine;
@@ -38,7 +39,7 @@ namespace Bullets
         {
             EnemyBodyPartCollision enemyBodyPartCollision  = hitCollider.GetComponent<EnemyBodyPartCollision>();
             
-            enemyBodyPartCollision.OnShoot();
+            enemyBodyPartCollision.OnShoot(GameManager.GetBulletDamage());
             Destroy(_bullet.gameObject);
         }
         

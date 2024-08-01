@@ -69,5 +69,18 @@ namespace Enemys.EnemyBodyParts
         {
             return _enemyBodyPartHealthSystem;
         }
+        
+        public void AddMoveSpeed(int percentage)
+        {
+            if (percentage is < -100 or > 100)
+            {
+                Debug.LogWarning("Percentage must be between -100 and 100.");
+                return;
+            }
+
+            float newMoveSpeed = _pathFollower.speed * (1 + (percentage / 100f));
+
+            _pathFollower.speed = Mathf.Max(0.01f, newMoveSpeed);
+        }
     }
 }

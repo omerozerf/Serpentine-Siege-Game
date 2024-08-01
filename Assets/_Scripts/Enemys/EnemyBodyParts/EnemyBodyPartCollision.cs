@@ -8,7 +8,7 @@ namespace Enemys.EnemyBodyParts
         [SerializeField] private EnemyBodyPart _enemyBodyPart;
         [SerializeField] private LayerMask _collisionMask;
 
-        public event Action OnShooted;
+        public event Action<int> OnShooted;
         
         private float m_CheckTime;
         private bool isReversing = false;
@@ -23,9 +23,9 @@ namespace Enemys.EnemyBodyParts
             return _enemyBodyPart;
         }
         
-        public void OnShoot()
+        public void OnShoot(int damage)
         {
-            OnShooted?.Invoke();
+            OnShooted?.Invoke(damage);
         }
 
         public bool IsPathBlocked()
