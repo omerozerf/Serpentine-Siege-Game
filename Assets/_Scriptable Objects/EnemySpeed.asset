@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca7a439b213e4313bbe7ad22a6a94ab2, type: 3}
-  m_Name: LevelUpPowerUpSO 1
+  m_Name: EnemySpeed
   m_EditorClassIdentifier: 
-  _powerUpHeader: 
+  _powerUpHeader: Enemy Speed
   _powerUpDescription: 
-  _powerUpSprite: {fileID: 0}
-  _powerUpType: 0
+  _powerUpSprite: {fileID: 21300000, guid: f29f982f5337cf24a8a08b1449fcdaee, type: 3}
+  _powerUpType: 3
   _fireRatePercentage: 0
   _damageAmount: 0
-  _movementSpeedPercentage: 0
-  _enemySpeedPercentage: 0
-  _soldierCount: 0
+  _movementSpeedPercentage: -35
+  _enemySpeedPercentage: -40
+  _soldierCount: 1

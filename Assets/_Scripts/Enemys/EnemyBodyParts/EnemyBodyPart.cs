@@ -1,4 +1,5 @@
 ﻿using System;
+using _Managers;
 using PathCreation;
 using PathCreation.Examples;
 using UnityEngine;
@@ -13,6 +14,18 @@ namespace Enemys.EnemyBodyParts
         [SerializeField] private bool _isHead;
 
         private bool m_HasMinusSpeed;
+
+        private void Awake()
+        {
+            GameManager.OnEnemySpeedChanged += OnEnemySpeedChanged;
+            _pathFollower.speed = GameManager.GetEnemySpeed();
+        }
+
+        private void OnDestroy()
+        {
+            GameManager.OnEnemySpeedChanged -= OnEnemySpeedChanged;
+        }
+
 
         private void Update()
         {
@@ -33,6 +46,10 @@ namespace Enemys.EnemyBodyParts
             }
         }
 
+        private void OnEnemySpeedChanged(float obj)
+        {
+            _pathFollower.speed = GameManager.GetEnemySpeed();
+        }
 
         public Vector3 GetPosition()
         {
@@ -68,19 +85,6 @@ namespace Enemys.EnemyBodyParts
         public EnemyBodyPartHealthSystem GetEnemyBodyPartHealthSystem()
         {
             return _enemyBodyPartHealthSystem;
-        }
-        
-        public void AddMoveSpeed(int percentage)
-        {
-            if (percentage is < -100 or > 100)
-            {
-                Debug.LogWarning("Percentage must be between -100 and 100.");
-                return;
-            }
-
-            float newMoveSpeed = _pathFollower.speed * (1 + (percentage / 100f));
-
-            _pathFollower.speed = Mathf.Max(0.01f, newMoveSpeed);
         }
     }
 }

@@ -31,7 +31,7 @@ namespace Players
         }
 
         
-        public void AddFireRate(int percentage)
+        public void AddFireRate(float percentage)
         {
             if (percentage is < -100 or > 100)
             {

@@ -13,11 +13,6 @@ namespace Enemys.EnemyBodyParts
         private float m_CheckTime;
         private bool isReversing = false;
 
-        private void Update()
-        {
-            Debug.Log(IsPathBlocked() + " " + _enemyBodyPart.name);
-        }
-
         public EnemyBodyPart GetEnemyBodyPart()
         {
             return _enemyBodyPart;

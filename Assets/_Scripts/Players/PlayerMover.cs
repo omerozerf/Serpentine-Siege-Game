@@ -32,7 +32,7 @@ namespace Players
         }
 
         
-        public void AddMoveSpeed(int percentage)
+        public void AddMoveSpeed(float percentage)
         {
             if (percentage is < -100 or > 100)
             {

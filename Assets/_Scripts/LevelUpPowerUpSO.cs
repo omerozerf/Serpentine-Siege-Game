@@ -4,7 +4,7 @@
 public class LevelUpPowerUpSO : ScriptableObject
 {
     [SerializeField] public string _powerUpHeader;
-    [SerializeField] public string _powerUpDescription;
+    [SerializeField, HideInInspector] public string _powerUpDescription;
     [SerializeField] public Sprite _powerUpSprite;
     [SerializeField] public LevelUpPowerUpType _powerUpType;
 
@@ -57,5 +57,18 @@ public class LevelUpPowerUpSO : ScriptableObject
     public int GetSoldierCount()
     {
         return _powerUpType == LevelUpPowerUpType.SoldierCount ? _soldierCount : 0;
+    }
+    
+    public float GetPowerUpValue()
+    {
+        return _powerUpType switch
+        {
+            LevelUpPowerUpType.FireRate => _fireRatePercentage,
+            LevelUpPowerUpType.Damage => _damageAmount,
+            LevelUpPowerUpType.MovementSpeed => _movementSpeedPercentage,
+            LevelUpPowerUpType.EnemySpeed => _enemySpeedPercentage,
+            LevelUpPowerUpType.SoldierCount => _soldierCount,
+            _ => 0
+        };
     }
 }
