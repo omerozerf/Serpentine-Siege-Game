@@ -1,4 +1,5 @@
 ﻿using System;
+using Enemys.EnemyBodyParts;
 using UnityEngine;
 
 namespace Players
@@ -11,9 +12,27 @@ namespace Players
         
         [SerializeField] private int m_Level = 1;
         [SerializeField] private int m_Experience = 0;
-        [SerializeField] private int m_ExperienceToNextLevel = 100; // İlk level için gerekli deneyim puanı
-        [SerializeField] private float experienceMultiplier = 1.5f; // Her levelde gerekli deneyim artış katsayısı
+        [SerializeField] private int m_ExperienceToNextLevel = 100; 
+        [SerializeField] private float experienceMultiplier = 1.5f;
+
+
+        private void Awake()
+        {
+            EnemyBodyPartHealthSystem.OnEnemyDied += OnEnemyDied;
+        }
         
+        private void OnDestroy()
+        {
+            EnemyBodyPartHealthSystem.OnEnemyDied -= OnEnemyDied;
+        }
+        
+        
+        private void OnEnemyDied()
+        {
+            GainExperience(1);
+        }
+
+
         public void GainExperience(int amount)
         {
             m_Experience += amount;

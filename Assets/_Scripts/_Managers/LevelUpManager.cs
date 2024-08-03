@@ -21,11 +21,14 @@ namespace _Managers
             _levelUpLeftButton.GetButton().onClick.AddListener(() =>
             {
                 _levelUpParentTransform.gameObject.SetActive(false);
+                GameManager.SetIsPaused(false);
+
             });
             
             _levelUpRightButton.GetButton().onClick.AddListener(() =>
             {
                 _levelUpParentTransform.gameObject.SetActive(false);
+                GameManager.SetIsPaused(false);
             });
         }
 
@@ -41,7 +44,8 @@ namespace _Managers
         private void OnLevelUp(int level)
         {
             Debug.Log("Level Up! New Level: " + level);
-            
+         
+            GameManager.SetIsPaused(true);
             _levelUpParentTransform.gameObject.SetActive(true);
         }
     }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Managers;
+using UnityEngine;
 
 namespace Bullets
 {
@@ -11,6 +12,8 @@ namespace Bullets
     
         private void Update()
         {
+            if(GameManager.GetIsPaused()) return;
+            
             transform.Translate(Vector3.forward * (_speed * Time.deltaTime));
         }
     }

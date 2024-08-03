@@ -12,6 +12,7 @@ namespace _Managers
         
         private int m_BulletDamage = 1;
         private float m_EnemySpeed = 7;
+        private bool m_IsPaused;
 
         private void Awake()
         {
@@ -51,6 +52,16 @@ namespace _Managers
             ms_Instance.m_EnemySpeed = Mathf.Max(0.01f, newMoveSpeed);
             
             OnEnemySpeedChanged?.Invoke(ms_Instance.m_EnemySpeed);
+        }
+        
+        public static void SetIsPaused(bool isPaused)
+        {
+            ms_Instance.m_IsPaused = isPaused;
+        }
+
+        public static bool GetIsPaused()
+        {
+            return ms_Instance.m_IsPaused;
         }
     }
 }

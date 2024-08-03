@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Managers;
+using UnityEngine;
 
 namespace PathCreation.Examples
 {
@@ -21,6 +22,8 @@ namespace PathCreation.Examples
 
         void Update()
         {
+            if(GameManager.GetIsPaused()) return;
+            
             if (pathCreator != null)
             {
                 distanceTravelled += speed * Time.deltaTime;

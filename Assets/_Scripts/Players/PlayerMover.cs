@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Managers;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Players
@@ -14,6 +15,8 @@ namespace Players
 
         private void Update()
         {
+            if(GameManager.GetIsPaused()) return;
+            
             float moveHorizontal = _joystick.Horizontal;
             float moveVertical = _joystick.Vertical;
 

@@ -8,6 +8,8 @@ namespace Enemys.EnemyBodyParts
         [SerializeField] private EnemyBodyPart _enemyBodyPart;
         [SerializeField] private int _health;
         
+        public static event Action OnEnemyDied;
+        
         public event Action<int> OnHealthChanged; 
         
 
@@ -28,6 +30,7 @@ namespace Enemys.EnemyBodyParts
             if (_health <= 0)
             {
                 _enemyBodyPart.DestroySelf();
+                OnEnemyDied?.Invoke();
             }
         }
 

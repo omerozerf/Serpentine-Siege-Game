@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using _Managers;
 using Bullets;
 using UnityEngine;
 
@@ -27,6 +28,8 @@ namespace Players
 
         private void Shoot()
         {
+            if(GameManager.GetIsPaused()) return;
+            
             Bullet bullet = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
         }
 
