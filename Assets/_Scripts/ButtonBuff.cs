@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using _Managers;
+using Managers;
 using Players;
 using TMPro;
 using UnityEngine;
@@ -39,11 +40,14 @@ public class ButtonBuff : MonoBehaviour
                 }
                 case LevelUpPowerUpType.EnemySpeed:
                 {
-                    GameManager.AddEnemyMoveSpeed(_levelUpPowerUpSO.GetEnemySpeedPercentage());
+                    GameManager.SetEnemyMoveSpeed(_levelUpPowerUpSO.GetEnemySpeedPercentage());
                     break;
                 }
                 case LevelUpPowerUpType.SoldierCount:
+                {
+                    SoldiersManager.SetSoldierSetActive(_levelUpPowerUpSO.GetSoldierCount());
                     break;
+                }
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -67,5 +71,15 @@ public class ButtonBuff : MonoBehaviour
     public Button GetButton()
     {
         return _button;
+    }
+    
+    public void SetLevelUpPowerUpSO(LevelUpPowerUpSO levelUpPowerUpSo)
+    {
+        _levelUpPowerUpSO = levelUpPowerUpSo;
+    }
+    
+    public LevelUpPowerUpSO GetLevelUpPowerUpSO()
+    {
+        return _levelUpPowerUpSO;
     }
 }

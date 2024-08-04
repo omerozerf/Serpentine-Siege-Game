@@ -8,7 +8,7 @@ namespace Players
     {
         [FormerlySerializedAs("_playerMovement")] [SerializeField] private PlayerMover _playerMover;
         [SerializeField] private PlayerLevelSystem _playerLevelSystem;
-        [SerializeField] private PlayerBulletShooter _playerBulletShooter;
+        [FormerlySerializedAs("_playerBulletShooter")] [SerializeField] private BulletShooter _bulletShooter;
         
         public PlayerMover GetPlayerMover()
         {
@@ -20,9 +20,9 @@ namespace Players
             return _playerLevelSystem;
         }
         
-        public PlayerBulletShooter GetPlayerBulletShooter()
+        public BulletShooter GetPlayerBulletShooter()
         {
-            return _playerBulletShooter;
+            return _bulletShooter;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "LevelUpPowerUpSO", menuName = "LevelUpPowerUpSO", order = 0)]
 public class LevelUpPowerUpSO : ScriptableObject
@@ -70,5 +71,29 @@ public class LevelUpPowerUpSO : ScriptableObject
             LevelUpPowerUpType.SoldierCount => _soldierCount,
             _ => 0
         };
+    }
+    
+    public void SetPowerUpValue(float value)
+    {
+        switch (_powerUpType)
+        {
+            case LevelUpPowerUpType.FireRate:
+                _fireRatePercentage = value;
+                break;
+            case LevelUpPowerUpType.Damage:
+                _damageAmount = (int)value;
+                break;
+            case LevelUpPowerUpType.MovementSpeed:
+                _movementSpeedPercentage = value;
+                break;
+            case LevelUpPowerUpType.EnemySpeed:
+                _enemySpeedPercentage = value;
+                break;
+            case LevelUpPowerUpType.SoldierCount:
+                _soldierCount = (int)value;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 }

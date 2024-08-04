@@ -47,5 +47,10 @@ namespace Players
 
             _moveSpeed = Mathf.Max(0.01f, newMoveSpeed);
         }
+        
+        public float GetMoveSpeed()
+        {
+            return _moveSpeed;
+        }
     }
 }

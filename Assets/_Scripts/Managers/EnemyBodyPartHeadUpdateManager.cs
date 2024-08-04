@@ -1,12 +1,9 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using _Controllers;
 using Enemys.EnemyBodyParts;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Enemys
+namespace Managers
 {
     public class EnemyBodyPartHeadUpdateManager : MonoBehaviour
     {

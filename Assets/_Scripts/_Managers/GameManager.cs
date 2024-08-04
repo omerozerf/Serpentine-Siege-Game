@@ -6,12 +6,14 @@ namespace _Managers
 {
     public class GameManager : MonoBehaviour
     {
-        public static event Action<float> OnEnemySpeedChanged; 
+        public static event Action<float> OnEnemySpeedChanged;
+        public static event Action<float> OnFireRateChanged; 
         
         private static GameManager ms_Instance;
         
         private int m_BulletDamage = 1;
-        private float m_EnemySpeed = 7;
+        [SerializeField] private float m_EnemySpeed = 7;
+        [SerializeField] private float m_FireRate = 0.5f;
         private bool m_IsPaused;
 
         private void Awake()
@@ -39,19 +41,10 @@ namespace _Managers
             return ms_Instance.m_EnemySpeed;
         }
 
-        public static void AddEnemyMoveSpeed(float percentage)
+        public static void SetEnemyMoveSpeed(float speed)
         {
-            if (percentage is < -100 or > 100)
-            {
-                Debug.LogWarning("Percentage must be between -100 and 100.");
-                return;
-            }
-
-            float newMoveSpeed = ms_Instance.m_EnemySpeed * (1 + (percentage / 100f));
-
-            ms_Instance.m_EnemySpeed = Mathf.Max(0.01f, newMoveSpeed);
-            
-            OnEnemySpeedChanged?.Invoke(ms_Instance.m_EnemySpeed);
+            ms_Instance.m_EnemySpeed = speed;
+            OnEnemySpeedChanged?.Invoke(speed);
         }
         
         public static void SetIsPaused(bool isPaused)
@@ -62,6 +55,17 @@ namespace _Managers
         public static bool GetIsPaused()
         {
             return ms_Instance.m_IsPaused;
+        }
+        
+        public static float GetFireRate()
+        {
+            return ms_Instance.m_FireRate;
+        }
+
+        public static void SetFireRate(float fireRate)
+        {
+            ms_Instance.m_FireRate = fireRate;
+            OnFireRateChanged?.Invoke(fireRate);
         }
     }
 }
