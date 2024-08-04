@@ -9,6 +9,7 @@ namespace _Managers
         [SerializeField] private Transform _levelUpParentTransform;
         [SerializeField] private ButtonBuff _levelUpLeftButton;
         [SerializeField] private ButtonBuff _levelUpRightButton;
+        [SerializeField] private LevelUpPowerUpSO[] _levelUpPowerUpSoArray;
         
         private static LevelUpManager ms_Instance;
 

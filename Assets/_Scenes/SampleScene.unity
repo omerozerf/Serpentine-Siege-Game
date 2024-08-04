@@ -1808,6 +1808,12 @@ MonoBehaviour:
   _levelUpParentTransform: {fileID: 541871223}
   _levelUpLeftButton: {fileID: 1178190261}
   _levelUpRightButton: {fileID: 2060732026}
+  _levelUpPowerUpSoArray:
+  - {fileID: 11400000, guid: 6f8a30e8ed43b2f4786729ea70affa47, type: 2}
+  - {fileID: 11400000, guid: ee97a26f18db82541bfd1b2acb2a13ff, type: 2}
+  - {fileID: 11400000, guid: 4eee2d2eb01267542b74804282c1e9d0, type: 2}
+  - {fileID: 11400000, guid: 661336a90dd0761499238f74443814eb, type: 2}
+  - {fileID: 11400000, guid: 309dbacd716c2ae49a5954fcbe98eef0, type: 2}
 --- !u!4 &1534757395
 Transform:
   m_ObjectHideFlags: 0
@@ -2233,7 +2239,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 1
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0
     vertexPathMinVertexSpacing: 1
     showTransformTool: 1
