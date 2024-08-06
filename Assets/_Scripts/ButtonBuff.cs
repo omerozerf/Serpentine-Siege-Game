@@ -59,7 +59,37 @@ public class ButtonBuff : MonoBehaviour
         _header.text = _levelUpPowerUpSO.GetPowerUpHeader();
         _description.text = _levelUpPowerUpSO.GetPowerUpDescription();
         string icon = _levelUpPowerUpSO.GetPowerUpValue() > 0 ? "+" : "-";
-        _description.text = $"{icon} %{Mathf.Abs(_levelUpPowerUpSO.GetPowerUpValue())}";
+
+        switch (_levelUpPowerUpSO._powerUpType)
+        {
+            case LevelUpPowerUpType.FireRate:
+            {
+                _description.text = $"{icon} %{Mathf.Abs(_levelUpPowerUpSO.GetPowerUpValue())}";
+                break;
+            }
+            case LevelUpPowerUpType.Damage:
+            {
+                _description.text = $"{icon} {Mathf.Abs(_levelUpPowerUpSO.GetPowerUpValue())}";
+                break;
+            }
+            case LevelUpPowerUpType.MovementSpeed:
+            {
+                _description.text = $"{icon} %{Mathf.Abs(_levelUpPowerUpSO.GetPowerUpValue())}";
+                break;
+            }
+            case LevelUpPowerUpType.EnemySpeed:
+            {
+                _description.text = $"{icon} %{Mathf.Abs(_levelUpPowerUpSO.GetPowerUpValue())}";
+                break;
+            }
+            case LevelUpPowerUpType.SoldierCount:
+            {
+                _description.text = $"{icon} {Mathf.Abs(_levelUpPowerUpSO.GetPowerUpValue())}";
+                break;
+            }
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
         _image.sprite = _levelUpPowerUpSO.GetPowerUpSprite();
     }
 
