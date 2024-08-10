@@ -318,6 +318,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &208243149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 208243150}
+  m_Layer: 0
+  m_Name: -------------------
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &208243150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208243149}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &263735855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2254,8 +2285,8 @@ MonoBehaviour:
   _levelUpLeftButton: {fileID: 1178190261}
   _levelUpRightButton: {fileID: 2060732026}
   _levelUpPowerUpSoArray:
-  - {fileID: 11400000, guid: 6f8a30e8ed43b2f4786729ea70affa47, type: 2}
   - {fileID: 11400000, guid: ee97a26f18db82541bfd1b2acb2a13ff, type: 2}
+  - {fileID: 11400000, guid: 6f8a30e8ed43b2f4786729ea70affa47, type: 2}
   - {fileID: 11400000, guid: 4eee2d2eb01267542b74804282c1e9d0, type: 2}
   - {fileID: 11400000, guid: 661336a90dd0761499238f74443814eb, type: 2}
   - {fileID: 11400000, guid: 309dbacd716c2ae49a5954fcbe98eef0, type: 2}
@@ -3303,3 +3334,4 @@ SceneRoots:
   - {fileID: 1534757395}
   - {fileID: 537961453}
   - {fileID: 306784740}
+  - {fileID: 208243150}
