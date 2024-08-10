@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3639bb52c20049ad9f1727d6a0bba1f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EnemySpeed: 7
+  m_EnemySpeed: 6
   m_FireRate: 0.5
 --- !u!4 &429755
 Transform:
