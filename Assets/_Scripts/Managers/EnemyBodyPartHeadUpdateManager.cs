@@ -19,11 +19,9 @@ namespace Managers
         {
             ms_Instance = this;
             _enemyBodyPartCreateController.OnEnemyBodyPartCreated += OnEnemyBodyPartCreated;
-        }
-
-        private void Start()
-        {
+            
             m_EnemyBodyPartList.Add(_enemyBodyPartHead);
+            _enemyBodyPartHead.GetPathFollower().distanceTravelled = 250;
         }
 
         private void OnDestroy()
@@ -37,7 +35,12 @@ namespace Managers
             int indexOf = m_EnemyBodyPartList.IndexOf(enemyBodyPart);
             
             EnemyBodyPart previousEnemyBodyPart = m_EnemyBodyPartList[indexOf - 1];
+            
+            
             previousEnemyBodyPart.SetIsHead(false);
+
+            enemyBodyPart.GetPathFollower().distanceTravelled =
+                previousEnemyBodyPart.GetPathFollower().distanceTravelled - 5;
         }
     }
 }
