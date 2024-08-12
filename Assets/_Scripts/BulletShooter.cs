@@ -2,6 +2,7 @@
 using System.Collections;
 using _Managers;
 using Bullets;
+using Players;
 using UnityEngine;
 
 public class BulletShooter : MonoBehaviour
@@ -40,14 +41,14 @@ public class BulletShooter : MonoBehaviour
         while (true)
         {
             Shoot();
-            yield return new WaitForSeconds(m_FireRate);
+            yield return new WaitForSeconds(GameManager.GetFireRate());
         }
         // ReSharper disable once IteratorNeverReturns
     }
 
     private void Shoot()
     {
-        if(GameManager.GetIsPaused()) return;
+        if(GameManager.GetIsPaused() || !Player.GetPlayerFollowSnake().GetIsFollowing()) return;
             
         Bullet bullet = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
     }

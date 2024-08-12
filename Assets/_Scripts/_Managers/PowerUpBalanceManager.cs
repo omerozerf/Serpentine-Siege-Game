@@ -10,6 +10,7 @@ namespace _Managers
     public class PowerUpBalanceManager : MonoBehaviour
     {
         [SerializeField] private Player _player;
+        [SerializeField] private LevelUpPowerUpSO[] _levelUpPowerUpSoArray;
 
         public float MinFireRate = 0.25f;
         public float MaxFireRate = 2.0f;
@@ -22,8 +23,16 @@ namespace _Managers
         public int MinSoldierCount = 0;
         public int MaxSoldierCount = 4;
 
+        private static PowerUpBalanceManager ms_Instance;
+        
         private float chanceFactor = 0.2f; // %20 şans
         private float maxPercentageChange = 10f; // Maksimum %10 değişim
+
+
+        private void Awake()
+        {
+            ms_Instance = this;
+        }
 
         private void Start()
         {
@@ -32,31 +41,70 @@ namespace _Managers
 
         private void SetFireRate(float value, float percentageChange)
         {
-            GameManager.SetFireRate(value);
+            foreach (var VARIABLE in _levelUpPowerUpSoArray)
+            {
+                if (VARIABLE.GetPowerUpType() == LevelUpPowerUpType.FireRate)
+                {
+                    VARIABLE.SetPowerUpValue((int) percentageChange);
+                }
+            }
+            
+            // GameManager.SetFireRate(value);
             Debug.Log($"FireRate ayarlandı: {value} (Yüzdelik Değişiklik: {percentageChange}%)");
         }
 
         private void SetDamage(float value, float percentageChange)
         {
-            GameManager.SetBulletDamage((int)value);
+            
+            foreach (var VARIABLE in _levelUpPowerUpSoArray)
+            {
+                if (VARIABLE.GetPowerUpType() == LevelUpPowerUpType.Damage)
+                {
+                    VARIABLE.SetPowerUpValue((int) value);
+                }
+            }
+            
             Debug.Log($"Damage ayarlandı: {value} (Yüzdelik Değişiklik: {percentageChange}%)");
         }
 
         private void SetMovementSpeed(float value, float percentageChange)
         {
-            _player.GetPlayerMover().AddMoveSpeed(value);
+            
+            foreach (var VARIABLE in _levelUpPowerUpSoArray)
+            {
+                if (VARIABLE.GetPowerUpType() == LevelUpPowerUpType.MovementSpeed)
+                {
+                    VARIABLE.SetPowerUpValue((int) percentageChange);
+                }
+            }
+            
             Debug.Log($"MovementSpeed ayarlandı: {value} (Yüzdelik Değişiklik: {percentageChange}%)");
         }
         
         private void SetEnemySpeed(float value, float percentageChange)
         {
-            GameManager.SetEnemyMoveSpeed(value);
+            foreach (var VARIABLE in _levelUpPowerUpSoArray)
+            {
+                if (VARIABLE.GetPowerUpType() == LevelUpPowerUpType.EnemySpeed)
+                {
+                    VARIABLE.SetPowerUpValue((int) percentageChange);
+                }
+            }
+            
             Debug.Log($"EnemySpeed ayarlandı: {value} (Yüzdelik Değişiklik: {percentageChange}%)");
         }
         
         private void SetSoldierCount(int value, int percentageChange)
         {
-            SoldiersManager.SetSoldierSetActive(value);
+            
+            foreach (var VARIABLE in _levelUpPowerUpSoArray)
+            {
+                if (VARIABLE.GetPowerUpType() == LevelUpPowerUpType.SoldierCount)
+                {
+                    VARIABLE.SetPowerUpValue((int) value);
+                }
+            }
+            
             Debug.Log($"SoldierCount ayarlandı: {value} (Yüzdelik Değişiklik: {percentageChange}%)");
         }
 
@@ -86,17 +134,23 @@ namespace _Managers
         }
 
         [Button]
-        private void CheckPowerUp()
+        public static void CheckPowerUp()
         {
-            BalanceFireRate();
-            BalanceDamage();
-            BalanceMovementSpeed();
-            BalanceEnemySpeed();
-            BalanceSoldierCount();
+            ms_Instance.BalanceFireRate();
+            ms_Instance.BalanceDamage();
+            ms_Instance.BalanceMovementSpeed();
+            ms_Instance.BalanceEnemySpeed();
+            ms_Instance.BalanceSoldierCount();
         }
 
         private void BalanceFireRate()
         {
+            int random = Random.Range(-15, 26);
+            
+            SetFireRate(0, random);
+            
+            return;
+            
             float currentFireRate = GetFireRate();
             float percentageChange;
             float chance = Random.Range(0f, 1f); // 0 ile 1 arasında rastgele bir sayı
@@ -128,6 +182,12 @@ namespace _Managers
 
         private void BalanceDamage()
         {
+            int random = Random.Range(-1, 2);
+            
+            SetDamage(random, 0);
+            
+            return;
+            
             float currentDamage = GetDamage();
             float percentageChange;
             float chance = Random.Range(0f, 1f); // 0 ile 1 arasında rastgele bir sayı
@@ -157,6 +217,12 @@ namespace _Managers
 
         private void BalanceMovementSpeed()
         {
+            int random = Random.Range(-35, 16);
+            
+            SetMovementSpeed(0, random);
+            
+            return;
+            
             float currentMovementSpeed = GetMovementSpeed();
             float percentageChange;
             float chance = Random.Range(0f, 1f); // 0 ile 1 arasında rastgele bir sayı
@@ -186,6 +252,12 @@ namespace _Managers
 
         private void BalanceEnemySpeed()
         {
+            int random = Random.Range(-15, 26);
+            
+            SetEnemySpeed(0, random);
+            
+            return;
+            
             float currentEnemySpeed = GetEnemySpeed();
             float percentageChange;
             float chance = Random.Range(0f, 1f); // 0 ile 1 arasında rastgele bir sayı
@@ -215,6 +287,12 @@ namespace _Managers
 
         private void BalanceSoldierCount()
         {
+            int random = Random.Range(-1, 2);
+            
+            SetSoldierCount(random, 0);
+            
+            return;
+            
             int currentSoldierCount = GetSoldierCount();
             int percentageChange;
             float chance = Random.Range(0f, 1f); // 0 ile 1 arasında rastgele bir sayı

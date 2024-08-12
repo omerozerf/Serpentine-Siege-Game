@@ -74,6 +74,7 @@ namespace Enemys.EnemyBodyParts
 
         public void DestroySelf(float delay = 0)
         {
+            GameManager.AddDeadEnemyCount();
             Destroy(gameObject, delay);
         }
         

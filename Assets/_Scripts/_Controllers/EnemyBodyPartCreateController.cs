@@ -12,13 +12,20 @@ namespace _Controllers
         [SerializeField] private EnemyBodyPart[] _enemyBodyPartPrefabArray;
         [SerializeField] private Transform _enemyBodyPartsParent;
         [SerializeField] private PathCreator _pathCreator;
+        [SerializeField] private int _enemyBodyPartCount;
     
         public event Action<EnemyBodyPart> OnEnemyBodyPartCreated;
 
+        private static EnemyBodyPartCreateController ms_Instance;
+        
+        private void Awake()
+        {
+            ms_Instance = this;
+        }
 
         private async void Start()
         {
-            for (int index = 0; index < 50; index++)
+            for (int index = 0; index < _enemyBodyPartCount; index++)
             {
                 // await UniTask.WaitForSeconds(0.715f);
                 CreateEnemyBodyPart(Vector3.one * 999, Quaternion.identity, _enemyBodyPartsParent, index);
@@ -40,6 +47,11 @@ namespace _Controllers
         private EnemyBodyPart GetRandomEnemyBodyPartPrefab()
         {
             return _enemyBodyPartPrefabArray[UnityEngine.Random.Range(0, _enemyBodyPartPrefabArray.Length)];
+        }
+        
+        public static int GetEnemyBodyPartCount()
+        {
+            return ms_Instance._enemyBodyPartCount;
         }
     }
 }

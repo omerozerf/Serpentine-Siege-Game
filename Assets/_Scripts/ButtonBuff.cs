@@ -25,12 +25,12 @@ public class ButtonBuff : MonoBehaviour
             {
                 case LevelUpPowerUpType.FireRate:
                 {
-                    _player.GetPlayerBulletShooter().AddFireRate(_levelUpPowerUpSO.GetFireRatePercentage());
+                    GameManager.AddFireRate(_levelUpPowerUpSO.GetFireRatePercentage());
                     break;
                 }
                 case LevelUpPowerUpType.Damage:
                 {
-                    GameManager.SetBulletDamage(_levelUpPowerUpSO.GetDamageAmount());
+                    GameManager.SetBulletDamage(GameManager.GetBulletDamage() + _levelUpPowerUpSO.GetDamageAmount());
                     break;
                 }
                 case LevelUpPowerUpType.MovementSpeed:

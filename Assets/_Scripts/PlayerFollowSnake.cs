@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using Cysharp.Threading.Tasks;
 using Enemys.EnemyBodyParts;
+using Players;
 using UnityEngine;
 
 public class PlayerFollowSnake : MonoBehaviour
 {
+    [SerializeField] private Player _player;
     [SerializeField] private float _offSet;
     [SerializeField] private EnemyBodyPart _enemyBodyPartHead;
     [SerializeField] private float _speed;
@@ -22,13 +24,11 @@ public class PlayerFollowSnake : MonoBehaviour
         
         m_LastHeadZ = headZ;
 
-        Debug.Log($"Start: HeadZ={headZ}, PlayerZ={playerZ}, ZDistance={zDistance}");
 
         if (zDistance > _offSet)
         {
             Vector3 targetPos = new Vector3(transform.position.x, transform.position.y, headZ - _offSet);
 
-            Debug.Log($"Start: Target Position={targetPos}");
 
             StartCoroutine(SmoothMove(targetPos));
         }
@@ -41,8 +41,6 @@ public class PlayerFollowSnake : MonoBehaviour
         float currentHeadZ = _enemyBodyPartHead.transform.position.z;
         float distanceBetweenHeads = currentHeadZ - m_LastHeadZ;
         
-        Debug.Log($"Update: CurrentHeadZ={currentHeadZ}, LastHeadZ={m_LastHeadZ}, DistanceBetweenHeads={distanceBetweenHeads}");
-
         if (distanceBetweenHeads > -3.5 && m_IsFollowing)
         {
             m_IsFollowing = false;
@@ -51,11 +49,17 @@ public class PlayerFollowSnake : MonoBehaviour
             
             StartCoroutine(SmoothMove(targetPos));
         }
+
+        if (_enemyBodyPartHead.transform.position.z < transform.position.z)
+        {
+            Debug.Log("Game Over");
+            Time.timeScale = 0;
+        }
     }
 
     private IEnumerator SmoothMove(Vector3 targetPos)
     {
-        while (Vector3.Distance(transform.position, targetPos) > 0.1f)
+        while (Vector3.Distance(transform.position, targetPos) > 1f)
         {
             transform.position = Vector3.Lerp(transform.position, targetPos, _speed * Time.deltaTime);
             
@@ -63,5 +67,10 @@ public class PlayerFollowSnake : MonoBehaviour
         }
 
         m_IsFollowing = true;
+    }
+    
+    public bool GetIsFollowing()
+    {
+        return m_IsFollowing;
     }
 }

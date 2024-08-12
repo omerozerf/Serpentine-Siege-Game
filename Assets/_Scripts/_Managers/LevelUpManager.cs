@@ -45,6 +45,7 @@ namespace _Managers
             Debug.Log("Level Up! New Level: " + level);
             GameManager.SetIsPaused(true);
             
+            PowerUpBalanceManager.CheckPowerUp();
             ChangePowerUp();
             
             _levelUpParentTransform.gameObject.SetActive(true);
