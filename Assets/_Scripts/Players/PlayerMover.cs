@@ -25,11 +25,13 @@ namespace Players
 
         private void MoveCharacter(float moveHorizontal, float moveVertical)
         {
+            moveVertical = 0;
+            
             Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical) * (_moveSpeed * Time.deltaTime);
             Vector3 newPosition = transform.position + movement;
 
             newPosition.x = Mathf.Clamp(newPosition.x, _minX, _maxX);
-            newPosition.z = Mathf.Clamp(newPosition.z, _minZ, _maxZ);
+            // newPosition.z = Mathf.Clamp(newPosition.z, _minZ, _maxZ);
 
             transform.position = newPosition;
         }

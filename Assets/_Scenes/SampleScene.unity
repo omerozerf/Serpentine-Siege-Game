@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3639bb52c20049ad9f1727d6a0bba1f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EnemySpeed: 7
+  m_EnemySpeed: 3
   m_FireRate: 0.5
 --- !u!4 &429755
 Transform:
@@ -603,6 +603,7 @@ GameObject:
   - component: {fileID: 349727443}
   - component: {fileID: 349727445}
   - component: {fileID: 349727446}
+  - component: {fileID: 349727447}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -692,6 +693,21 @@ MonoBehaviour:
   m_Experience: 0
   m_ExperienceToNextLevel: 3
   experienceMultiplier: 1.5
+--- !u!114 &349727447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349727441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13919f0c86c64fc58120f9d9c4b67c8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _offSet: 20
+  _enemyBodyPartHead: {fileID: 117390281}
+  _speed: 1
 --- !u!1 &358795923
 GameObject:
   m_ObjectHideFlags: 0
