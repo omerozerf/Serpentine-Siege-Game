@@ -27,7 +27,7 @@ namespace Enemys.EnemyBodyParts
         {
             RaycastHit hit;
             // SphereCast yaparak belirli bir mesafede çakışma olup olmadığını kontrol et
-            if (Physics.SphereCast(transform.position, 1.5f, -transform.forward, out hit, 2.5f, _collisionMask, QueryTriggerInteraction.Ignore))
+            if (Physics.SphereCast(transform.position, .1f, -transform.forward, out hit, .25f, _collisionMask, QueryTriggerInteraction.Ignore))
             {
                 // Çakışan nesne kendimiz değilse true döndür
                 if (hit.collider.gameObject != gameObject)
@@ -42,12 +42,12 @@ namespace Enemys.EnemyBodyParts
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.black;
-            Vector3 direction = -transform.forward * 2.5f;
+            Vector3 direction = -transform.forward * .25f;
             Vector3 origin = transform.position;
 
             // Küre çizimi
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(origin + direction * 0.8f, 1.5f);
+            Gizmos.DrawWireSphere(origin + direction * 0.8f, .1f);
         }
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17600054, g: 0.22025624, b: 0.30258536, a: 1}
+  m_IndirectSpecularColor: {r: 0.17600025, g: 0.220256, b: 0.3025849, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -272,7 +272,7 @@ MonoBehaviour:
   - {fileID: 4584968033221901038, guid: 32596f25b63f2af4ea4024131d63ec85, type: 3}
   _enemyBodyPartsParent: {fileID: 633413865}
   _pathCreator: {fileID: 114462759382663819}
-  _enemyBodyPartCount: 49
+  _enemyBodyPartCount: 100
 --- !u!4 &198279460
 Transform:
   m_ObjectHideFlags: 0

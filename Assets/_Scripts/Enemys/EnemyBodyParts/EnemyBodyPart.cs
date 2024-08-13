@@ -36,12 +36,12 @@ namespace Enemys.EnemyBodyParts
             
             if (!_enemyBodyPartCollision.IsPathBlocked() && !m_HasMinusSpeed)
             {
-                _pathFollower.speed *= -1;
+                _pathFollower.speed = -25;
                 m_HasMinusSpeed = true;
             }
             if (_enemyBodyPartCollision.IsPathBlocked() && m_HasMinusSpeed)
             {
-                _pathFollower.speed = Mathf.Abs(_pathFollower.speed);
+                _pathFollower.speed = GameManager.GetEnemySpeed();
                 m_HasMinusSpeed = false;
             }
         }

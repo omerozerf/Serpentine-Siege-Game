@@ -28,7 +28,7 @@ namespace _Controllers
             for (int index = 0; index < _enemyBodyPartCount; index++)
             {
                 // await UniTask.WaitForSeconds(0.715f);
-                CreateEnemyBodyPart(Vector3.one * 999, Quaternion.identity, _enemyBodyPartsParent, index);
+                CreateEnemyBodyPart(Vector3.one, Quaternion.identity, _enemyBodyPartsParent, index);
             }
         }
 
