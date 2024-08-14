@@ -19,14 +19,24 @@ namespace Managers
         {
             ms_Instance = this;
             _enemyBodyPartCreateController.OnEnemyBodyPartCreated += OnEnemyBodyPartCreated;
+            EnemyBodyPart.OnIsHeadDead += OnIsHeadDead;
             
             m_EnemyBodyPartList.Add(_enemyBodyPartHead);
-            _enemyBodyPartHead.GetPathFollower().distanceTravelled = 1250;
+            _enemyBodyPartHead.GetPathFollower().distanceTravelled = 150;
         }
 
         private void OnDestroy()
         {
             _enemyBodyPartCreateController.OnEnemyBodyPartCreated -= OnEnemyBodyPartCreated;
+            EnemyBodyPart.OnIsHeadDead -= OnIsHeadDead;
+        }
+        
+        private void OnIsHeadDead(EnemyBodyPart enemyBodyPart)
+        {
+            m_EnemyBodyPartList.Remove(enemyBodyPart);
+            
+            var enemyBodyPartLast = m_EnemyBodyPartList[^1];
+            enemyBodyPartLast.SetIsHead(true);
         }
 
         private void OnEnemyBodyPartCreated(EnemyBodyPart enemyBodyPart)
@@ -40,7 +50,7 @@ namespace Managers
             previousEnemyBodyPart.SetIsHead(false);
 
             enemyBodyPart.GetPathFollower().distanceTravelled =
-                previousEnemyBodyPart.GetPathFollower().distanceTravelled - 50f;
+                previousEnemyBodyPart.GetPathFollower().distanceTravelled - 5f;
         }
     }
 }

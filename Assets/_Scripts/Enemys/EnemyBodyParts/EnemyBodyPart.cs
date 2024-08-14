@@ -13,6 +13,8 @@ namespace Enemys.EnemyBodyParts
         [SerializeField] private PathFollower _pathFollower;
         [SerializeField] private bool _isHead;
 
+        public static event Action<EnemyBodyPart> OnIsHeadDead; 
+
         private bool m_HasMinusSpeed;
 
         private void Awake()
@@ -78,6 +80,12 @@ namespace Enemys.EnemyBodyParts
         public void DestroySelf(float delay = 0)
         {
             GameManager.AddDeadEnemyCount();
+
+            if (_isHead)
+            {
+                OnIsHeadDead?.Invoke(this);
+            }
+            
             Destroy(gameObject, delay);
         }
         

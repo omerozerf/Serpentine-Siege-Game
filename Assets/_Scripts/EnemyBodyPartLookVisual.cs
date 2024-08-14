@@ -3,28 +3,19 @@
 public class EnemyBodyPartLookVisual : MonoBehaviour
 {
     [SerializeField] private Transform _lookAtTransform;
-        
+    
     private void Update()
     {
-        if (!_lookAtTransform) return;
+        if (_lookAtTransform != null)
+        {
+            return;
+            
+            // Hedef pozisyona doğru yönelen rotasyonu hesapla
+            Vector3 direction = _lookAtTransform.position - transform.position;
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
 
-        // Get the direction to the target
-        Vector3 direction = _lookAtTransform.position - transform.position;
-
-        // Keep only the x and y components of the direction fixed
-        direction.x = 0;  // Neutralize x to keep rotation fixed on x-axis
-        direction.y = 0;  // Neutralize y to keep rotation fixed on y-axis
-
-        // Update the rotation to look at the target, but only changing the z rotation
-        transform.rotation = Quaternion.LookRotation(direction);
-
-        // Adjust the local x and y angles to stay fixed at 90 degrees
-        Vector3 localEulerAngles = transform.localEulerAngles;
-        localEulerAngles.x = 90f;
-        localEulerAngles.y = 90f;
-        transform.localEulerAngles = localEulerAngles;
+            // Sadece Z eksenindeki rotasyonu uygula
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, targetRotation.eulerAngles.z);
+        }
     }
-
-
-
 }
