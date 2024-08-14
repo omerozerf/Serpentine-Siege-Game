@@ -48,9 +48,9 @@ public class BulletShooter : MonoBehaviour
 
     private void Shoot()
     {
-        if(GameManager.GetIsPaused() || !Player.GetPlayerFollowSnake().GetIsFollowing()) return;
+        if(GameManager.GetIsPaused()) return;
             
-        Bullet bullet = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
+        Bullet bullet = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, Quaternion.identity);
     }
 
         

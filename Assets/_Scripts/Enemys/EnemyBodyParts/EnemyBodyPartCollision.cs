@@ -14,7 +14,7 @@ namespace Enemys.EnemyBodyParts
         private bool isReversing = false;
 
         // Cooldown-related fields
-        private float _cooldownTime = 0.25f; // Cooldown time in seconds
+        private float _cooldownTime = 0.5f; // Cooldown time in seconds
         private float _cooldownTimer = 0f; // Timer to track cooldown
         private bool _wasPathBlocked = false; // Tracks the last state
 
@@ -33,7 +33,7 @@ namespace Enemys.EnemyBodyParts
             RaycastHit hit;
 
             // SphereCast to check for collision
-            if (Physics.SphereCast(transform.position, 1.5f, -transform.forward, out hit, 2.75f, _collisionMask))
+            if (Physics.SphereCast(transform.position, 1.5f, -transform.forward, out hit, 1.5f, _collisionMask))
             {
                 // If the hit object is not this object, path is blocked
                 if (hit.collider.gameObject != gameObject)
@@ -69,7 +69,7 @@ namespace Enemys.EnemyBodyParts
             // Raycast parameters
             Vector3 origin = transform.position;
             Vector3 direction = -transform.forward;
-            float rayLength = 2.75f;
+            float rayLength = 1.5f;
             float sphereRadius = 1.5f;
 
             // Draw the ray path
