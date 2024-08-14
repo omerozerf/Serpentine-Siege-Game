@@ -44,6 +44,9 @@ namespace Enemys.EnemyBodyParts
                 _pathFollower.speed = GameManager.GetEnemySpeed();
                 m_HasMinusSpeed = false;
             }
+            
+            Debug.Log(gameObject, gameObject);
+            Debug.Log(_enemyBodyPartCollision.IsPathBlocked());
         }
 
         private void OnEnemySpeedChanged(float obj)
