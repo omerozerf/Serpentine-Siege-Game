@@ -4,31 +4,46 @@ using PathCreation;
 using PathCreation.Examples;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Enemys.EnemyBodyParts
 {
     public class EnemyBodyPart : MonoBehaviour
     {
+        private static readonly int COLOR = Shader.PropertyToID("_Color");
+        
+        
         [SerializeField] private EnemyBodyPartCollision _enemyBodyPartCollision;
         [SerializeField] private EnemyBodyPartHealthSystem _enemyBodyPartHealthSystem;
         [SerializeField] private PathFollower _pathFollower;
         [SerializeField] private bool _isHead;
         [SerializeField] private TMP_Text _healthText;
         [SerializeField] private bool _isMain;
-        [SerializeField] private Color _color;
+        [SerializeField] private Color[] _colors;
+        [SerializeField] private Renderer _renderer;
+        
 
         public static event Action<EnemyBodyPart> OnIsHeadDead; 
 
+        private Color m_Color;
         private bool m_HasMinusSpeed;
         private bool m_IsDead;
 
         private void Awake()
         {
+            if (_renderer)
+            {
+                m_Color = _colors[Random.Range(0, _colors.Length)];
+                var propertyBlock = new MaterialPropertyBlock();
+                propertyBlock.SetColor(COLOR, m_Color);
+                _renderer.SetPropertyBlock(propertyBlock);
+            }
+
             if (!_isMain) _enemyBodyPartHealthSystem.OnHealthChanged += OnHealthChanged;
 
             if (!_isMain)
             {
-                _healthText.color = _color;
+                //_healthText.color = m_Color;
             }
         }
 
@@ -118,6 +133,11 @@ namespace Enemys.EnemyBodyParts
         public EnemyBodyPartHealthSystem GetEnemyBodyPartHealthSystem()
         {
             return _enemyBodyPartHealthSystem;
+        }
+
+        public Color GetColor()
+        {
+            return m_Color;
         }
     }
 }

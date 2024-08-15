@@ -5,6 +5,7 @@ namespace Enemys.EnemyBodyParts
 {
     public class EnemyBodyPartHealthSystem : MonoBehaviour
     {
+        [SerializeField] private ParticleSystem _explode;
         [SerializeField] private EnemyBodyPart _enemyBodyPart;
         [SerializeField] private int _health;
         
@@ -29,8 +30,18 @@ namespace Enemys.EnemyBodyParts
             TakeDamage(damage);
             if (_health <= 0)
             {
+                var explode = Instantiate(_explode, transform.position, Quaternion.identity);
+
                 _enemyBodyPart.DestroySelf();
                 OnEnemyDied?.Invoke();
+
+                var render = explode.GetComponent<ParticleSystemRenderer>();
+
+                var mat = new MaterialPropertyBlock();
+                
+                mat.SetColor("_Color", _enemyBodyPart.GetColor());
+                
+                render.SetPropertyBlock(mat);
             }
         }
 
