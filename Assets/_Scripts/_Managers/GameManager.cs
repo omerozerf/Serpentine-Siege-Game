@@ -1,5 +1,6 @@
 ﻿using System;
 using _Controllers;
+using Cysharp.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -21,6 +22,21 @@ namespace _Managers
         private void Awake()
         {
             ms_Instance = this;
+            EnemyBodyPartCreateController.OnAllEnemyBodyPartsCreated += OnAllEnemyBodyPartsCreated;
+            
+            // SetIsPaused(true);
+            
+            
+        }
+        
+        private void OnDestroy()
+        {
+            EnemyBodyPartCreateController.OnAllEnemyBodyPartsCreated -= OnAllEnemyBodyPartsCreated;
+        }
+        
+        private async void OnAllEnemyBodyPartsCreated()
+        {
+            // SetIsPaused(false);
         }
 
         public static GameManager GetInstance()

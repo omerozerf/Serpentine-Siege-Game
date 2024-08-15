@@ -15,6 +15,7 @@ namespace Enemys.EnemyBodyParts
         [SerializeField] private bool _isHead;
         [SerializeField] private TMP_Text _healthText;
         [SerializeField] private bool _isMain;
+        [SerializeField] private Color _color;
 
         public static event Action<EnemyBodyPart> OnIsHeadDead; 
 
@@ -25,6 +26,11 @@ namespace Enemys.EnemyBodyParts
             GameManager.OnEnemySpeedChanged += OnEnemySpeedChanged;
             if (!_isMain) _enemyBodyPartHealthSystem.OnHealthChanged += OnHealthChanged;
             _pathFollower.speed = GameManager.GetEnemySpeed();
+
+            if (!_isMain)
+            {
+                _healthText.color = _color;
+            }
         }
 
         private void OnDestroy()

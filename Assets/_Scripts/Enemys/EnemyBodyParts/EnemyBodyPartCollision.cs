@@ -7,6 +7,7 @@ namespace Enemys.EnemyBodyParts
     {
         [SerializeField] private EnemyBodyPart _enemyBodyPart;
         [SerializeField] private LayerMask _collisionMask;
+        [SerializeField] private GameObject _tailParticle;
 
         public event Action<int> OnShooted;
 
@@ -26,6 +27,11 @@ namespace Enemys.EnemyBodyParts
         public void OnShoot(int damage)
         {
             OnShooted?.Invoke(damage);
+        }
+
+        private void Update()
+        {
+            _tailParticle.SetActive(!IsPathBlocked());
         }
 
         public bool IsPathBlocked()

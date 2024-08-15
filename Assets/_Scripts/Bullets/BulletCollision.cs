@@ -45,6 +45,7 @@ namespace Bullets
             _boomParticle.transform.SetParent(null);
             _boomParticle.Play();
             
+            Destroy(_boomParticle.gameObject, _boomParticle.main.duration);
             Destroy(_bullet.gameObject);
         }
         

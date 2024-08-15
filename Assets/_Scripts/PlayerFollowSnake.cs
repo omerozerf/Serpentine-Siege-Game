@@ -43,7 +43,7 @@ public class PlayerFollowSnake : MonoBehaviour
         float currentHeadZ = _enemyBodyPartHead.transform.position.z;
         float distanceBetweenHeads = currentHeadZ - m_LastHeadZ;
         
-        if (distanceBetweenHeads > 7.5 && m_IsFollowing)
+        if (distanceBetweenHeads > 5 && m_IsFollowing)
         {
             m_IsFollowing = false;
             m_LastHeadZ = currentHeadZ;
@@ -61,7 +61,7 @@ public class PlayerFollowSnake : MonoBehaviour
 
     private IEnumerator SmoothMove(Vector3 targetPos)
     {
-        while (Vector3.Distance(transform.position, targetPos) > 2f)
+        while (Mathf.Abs(transform.position.z - targetPos.z) > 2f)
         {
             transform.position = Vector3.Lerp(transform.position, targetPos, _speed * Time.deltaTime);
             
