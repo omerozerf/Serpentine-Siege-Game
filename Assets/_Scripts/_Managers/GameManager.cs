@@ -50,10 +50,8 @@ namespace _Managers
 
         public static void SetEnemyMoveSpeed(float speed)
         {
-            if (GetEnemySpeed() < 0)
-            {
-                return;
-            }
+            return;
+            
             
             if (speed is < -100 or > 100)
             {

@@ -13,11 +13,13 @@ public class PlayerFollowSnake : MonoBehaviour
     
     private float m_LastHeadZ;
     private bool m_IsFollowing;
+    private bool m_FirstFollow;
 
     private async void Start()
     {
         await UniTask.DelayFrame(1);
         
+        m_FirstFollow = true;
         float headZ = _enemyBodyPartHead.transform.position.z;
         float playerZ = transform.position.z;
         float zDistance = headZ - playerZ;
@@ -27,7 +29,7 @@ public class PlayerFollowSnake : MonoBehaviour
 
         if (zDistance > _offSet)
         {
-            Vector3 targetPos = new Vector3(transform.position.x, transform.position.y, headZ - _offSet);
+            Vector3 targetPos = new Vector3(transform.position.x, transform.position.y, headZ - 25f);
 
 
             StartCoroutine(SmoothMove(targetPos));
@@ -41,11 +43,11 @@ public class PlayerFollowSnake : MonoBehaviour
         float currentHeadZ = _enemyBodyPartHead.transform.position.z;
         float distanceBetweenHeads = currentHeadZ - m_LastHeadZ;
         
-        if (distanceBetweenHeads > -3.5 && m_IsFollowing)
+        if (distanceBetweenHeads > 15 && m_IsFollowing)
         {
             m_IsFollowing = false;
             m_LastHeadZ = currentHeadZ;
-            Vector3 targetPos = new Vector3(transform.position.x, transform.position.y, currentHeadZ - _offSet);
+            Vector3 targetPos = new Vector3(transform.position.x, transform.position.y, currentHeadZ - 15f);
             
             StartCoroutine(SmoothMove(targetPos));
         }
@@ -59,7 +61,7 @@ public class PlayerFollowSnake : MonoBehaviour
 
     private IEnumerator SmoothMove(Vector3 targetPos)
     {
-        while (Vector3.Distance(transform.position, targetPos) > 1f)
+        while (Vector3.Distance(transform.position, targetPos) > 2f)
         {
             transform.position = Vector3.Lerp(transform.position, targetPos, _speed * Time.deltaTime);
             
@@ -67,10 +69,16 @@ public class PlayerFollowSnake : MonoBehaviour
         }
 
         m_IsFollowing = true;
+        m_FirstFollow = false;
     }
     
     public bool GetIsFollowing()
     {
         return m_IsFollowing;
+    }
+    
+    public bool GetFirstFollow()
+    {
+        return m_FirstFollow;
     }
 }

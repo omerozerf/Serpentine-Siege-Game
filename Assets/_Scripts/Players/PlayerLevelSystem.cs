@@ -1,5 +1,6 @@
 ﻿using System;
 using Enemys.EnemyBodyParts;
+using TMPro;
 using UnityEngine;
 
 namespace Players
@@ -14,11 +15,13 @@ namespace Players
         [SerializeField] private int m_Experience = 0;
         [SerializeField] private int m_ExperienceToNextLevel = 100; 
         [SerializeField] private float experienceMultiplier = 1.5f;
+        [SerializeField] private TMP_Text _levelText;
 
 
         private void Awake()
         {
             EnemyBodyPartHealthSystem.OnEnemyDied += OnEnemyDied;
+            _levelText.text = $"LVL<br>{m_Level}";
         }
         
         private void OnDestroy()
@@ -51,7 +54,8 @@ namespace Players
         private void LevelUp()
         {
             m_Level++;
-            m_ExperienceToNextLevel = Mathf.RoundToInt(m_ExperienceToNextLevel * experienceMultiplier); // Her levelde gerekli deneyimi arttır
+            m_ExperienceToNextLevel = Mathf.RoundToInt(m_ExperienceToNextLevel * experienceMultiplier);
+            _levelText.text = $"LVL<br>{m_Level}";
             OnLevelUp?.Invoke(m_Level);
         }
 

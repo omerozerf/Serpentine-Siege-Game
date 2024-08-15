@@ -11,6 +11,7 @@ namespace _Managers
         [SerializeField] private ButtonBuff _levelUpLeftButton;
         [SerializeField] private ButtonBuff _levelUpRightButton;
         [SerializeField] private LevelUpPowerUpSO[] _levelUpPowerUpSoArray;
+        [SerializeField] private ParticleSystem _levelParticle;
         
         private static LevelUpManager ms_Instance;
 
@@ -22,12 +23,14 @@ namespace _Managers
             _levelUpLeftButton.GetButton().onClick.AddListener(() =>
             {
                 _levelUpParentTransform.gameObject.SetActive(false);
+                _levelParticle.Play();
                 GameManager.SetIsPaused(false);
             });
             
             _levelUpRightButton.GetButton().onClick.AddListener(() =>
             {
                 _levelUpParentTransform.gameObject.SetActive(false);
+                _levelParticle.Play();
                 GameManager.SetIsPaused(false);
             });
         }

@@ -16,11 +16,11 @@ public class BulletShooter : MonoBehaviour
     {
         GameManager.OnFireRateChanged += OnFireRateChanged;
         
-        m_FireRate = GameManager.GetFireRate();
     }
 
     private void Start()
     {
+        m_FireRate = GameManager.GetFireRate();
         StartCoroutine(ShootRoutine());
     }
 
@@ -48,7 +48,7 @@ public class BulletShooter : MonoBehaviour
 
     private void Shoot()
     {
-        if(GameManager.GetIsPaused()) return;
+        if(GameManager.GetIsPaused() || Player.GetPlayerFollowSnake().GetFirstFollow()) return;
             
         Bullet bullet = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, Quaternion.identity);
     }

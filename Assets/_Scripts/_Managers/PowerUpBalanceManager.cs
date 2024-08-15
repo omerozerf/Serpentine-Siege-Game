@@ -50,7 +50,6 @@ namespace _Managers
             }
             
             // GameManager.SetFireRate(value);
-            Debug.Log($"FireRate ayarlandı: {value} (Yüzdelik Değişiklik: {percentageChange}%)");
         }
 
         private void SetDamage(float value, float percentageChange)
@@ -64,7 +63,6 @@ namespace _Managers
                 }
             }
             
-            Debug.Log($"Damage ayarlandı: {value} (Yüzdelik Değişiklik: {percentageChange}%)");
         }
 
         private void SetMovementSpeed(float value, float percentageChange)
@@ -78,7 +76,6 @@ namespace _Managers
                 }
             }
             
-            Debug.Log($"MovementSpeed ayarlandı: {value} (Yüzdelik Değişiklik: {percentageChange}%)");
         }
         
         private void SetEnemySpeed(float value, float percentageChange)
@@ -91,7 +88,6 @@ namespace _Managers
                 }
             }
             
-            Debug.Log($"EnemySpeed ayarlandı: {value} (Yüzdelik Değişiklik: {percentageChange}%)");
         }
         
         private void SetSoldierCount(int value, int percentageChange)
@@ -105,7 +101,6 @@ namespace _Managers
                 }
             }
             
-            Debug.Log($"SoldierCount ayarlandı: {value} (Yüzdelik Değişiklik: {percentageChange}%)");
         }
 
         private float GetFireRate()

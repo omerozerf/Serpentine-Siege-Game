@@ -14,7 +14,7 @@ namespace Enemys.EnemyBodyParts
         private bool isReversing = false;
 
         // Cooldown-related fields
-        private float _cooldownTime = 0.5f; // Cooldown time in seconds
+        private float _cooldownTime = 0.1f; // Cooldown time in seconds
         private float _cooldownTimer = 0f; // Timer to track cooldown
         private bool _wasPathBlocked = false; // Tracks the last state
 
@@ -31,9 +31,9 @@ namespace Enemys.EnemyBodyParts
         public bool IsPathBlocked()
         {
             RaycastHit hit;
-
+            
             // SphereCast to check for collision
-            if (Physics.SphereCast(transform.position, 1.5f, -transform.forward, out hit, 1.5f, _collisionMask))
+            if (Physics.SphereCast(transform.position, 0.5f, -transform.forward, out hit, 1f, _collisionMask))
             {
                 // If the hit object is not this object, path is blocked
                 if (hit.collider.gameObject != gameObject)
@@ -43,22 +43,25 @@ namespace Enemys.EnemyBodyParts
                     return true;
                 }
             }
-
-            // If path was blocked, start cooldown timer
-            if (_wasPathBlocked)
+            else
             {
+                // No collision detected, increase cooldown timer
                 _cooldownTimer += Time.deltaTime;
 
-                // If cooldown timer exceeds the cooldown time, reset
+                // If no collision for 1 second, reset the blocked state
                 if (_cooldownTimer >= _cooldownTime)
                 {
                     _wasPathBlocked = false;
                 }
-
-                return false;
             }
 
-            return false;
+            if (!_wasPathBlocked)
+            {
+                Debug.Log(gameObject,gameObject);
+            }
+            
+            // Return the current blocked state
+            return _wasPathBlocked;
         }
 
         private void OnDrawGizmos()
@@ -69,8 +72,8 @@ namespace Enemys.EnemyBodyParts
             // Raycast parameters
             Vector3 origin = transform.position;
             Vector3 direction = -transform.forward;
-            float rayLength = 1.5f;
-            float sphereRadius = 1.5f;
+            float rayLength = 1f;
+            float sphereRadius = 0.5f;
 
             // Draw the ray path
             Gizmos.DrawRay(origin, direction * rayLength);

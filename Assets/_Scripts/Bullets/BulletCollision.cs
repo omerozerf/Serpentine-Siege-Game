@@ -12,6 +12,7 @@ namespace Bullets
         [SerializeField] private Bullet _bullet;
         [SerializeField] private CapsuleCollider _capsuleCollider;
         [SerializeField] private LayerMask _collisionMask;
+        [SerializeField] private ParticleSystem _boomParticle;
         
         private readonly Collider[] m_ResultColliderArray = new Collider[1];
 
@@ -40,6 +41,10 @@ namespace Bullets
             EnemyBodyPartCollision enemyBodyPartCollision  = hitCollider.GetComponent<EnemyBodyPartCollision>();
             
             enemyBodyPartCollision.OnShoot(GameManager.GetBulletDamage());
+            
+            _boomParticle.transform.SetParent(null);
+            _boomParticle.Play();
+            
             Destroy(_bullet.gameObject);
         }
         
