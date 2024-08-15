@@ -3384,6 +3384,7 @@ MonoBehaviour:
   _isHead: 1
   _healthText: {fileID: 0}
   _isMain: 1
+  _color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &121330569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51217,7 +51218,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 1
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0
     vertexPathMinVertexSpacing: 1
     showTransformTool: 1
