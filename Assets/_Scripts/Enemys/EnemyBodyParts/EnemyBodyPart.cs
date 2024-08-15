@@ -20,6 +20,7 @@ namespace Enemys.EnemyBodyParts
         public static event Action<EnemyBodyPart> OnIsHeadDead; 
 
         private bool m_HasMinusSpeed;
+        private bool m_IsDead;
 
         private void Awake()
         {
@@ -96,6 +97,9 @@ namespace Enemys.EnemyBodyParts
 
         public void DestroySelf(float delay = 0)
         {
+            if (m_IsDead) return;
+            m_IsDead = true;
+         
             GameManager.AddDeadEnemyCount();
 
             if (_isHead)
