@@ -33,6 +33,14 @@ namespace _Controllers
                     CreateEnemyBodyPart(_enemyBodyPartsParent.transform.position, Quaternion.identity,
                         _enemyBodyPartsParent, index);
 
+                /*
+                if (index == _enemyBodyPartCount - 2)
+                {
+                    enemyBodyPart.gameObject.SetActive(false);
+                    enemyBodyPart.DestroySelf(5f);
+                    Debug.Log(enemyBodyPart, enemyBodyPart);
+                }*/
+
                 if (index < 10)
                 {
                     enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(5, 10));

@@ -7,7 +7,6 @@ namespace Enemys.EnemyBodyParts
     {
         [SerializeField] private EnemyBodyPart _enemyBodyPart;
         [SerializeField] private LayerMask _collisionMask;
-        [SerializeField] private GameObject _tailParticle;
 
         public event Action<int> OnShooted;
 
@@ -28,11 +27,7 @@ namespace Enemys.EnemyBodyParts
         {
             OnShooted?.Invoke(damage);
         }
-
-        private void Update()
-        {
-            _tailParticle.SetActive(!IsPathBlocked());
-        }
+        
 
         public bool IsPathBlocked()
         {
@@ -78,8 +73,8 @@ namespace Enemys.EnemyBodyParts
             // Raycast parameters
             Vector3 origin = transform.position;
             Vector3 direction = -transform.forward;
-            float rayLength = 1f;
-            float sphereRadius = 0.5f;
+            float rayLength = 1.5f;
+            float sphereRadius = 0.75f;
 
             // Draw the ray path
             Gizmos.DrawRay(origin, direction * rayLength);

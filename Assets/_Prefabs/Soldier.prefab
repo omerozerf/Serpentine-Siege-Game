@@ -334,15 +334,50 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7823293702887809713, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7140622406987951526, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6547223059409353530, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -6547223059409353530, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: -2778644761138557948, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
         type: 3}
+    - target: {fileID: -5632347708505420469, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5173192890273515867, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4396642182433536433, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -1811909254011546752, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1448402454934866964, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
+        type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1448402454934866964, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
@@ -351,10 +386,55 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -2778644761138557948, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
         type: 3}
+    - target: {fileID: -197507834740787838, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -91681808587120018, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
         type: 3}
       propertyPath: m_Name
       value: FabConvert.com_cool guy low poly@T-Pose
+      objectReference: {fileID: 0}
+    - target: {fileID: 958638783476277733, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 982707501442123641, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145826730577524950, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630794972795428178, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
+        type: 3}
+      propertyPath: m_Quality
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630794972795428178, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8335907118470890241, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8743813690021804245, guid: 1fda877e4c86f1f4fb6aff7e18b69975,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -584,10 +664,25 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1940563877391808568, guid: 85d7d17222ade344eaa5de35d0eb1817,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1244059258497906639, guid: 85d7d17222ade344eaa5de35d0eb1817,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 85d7d17222ade344eaa5de35d0eb1817,
         type: 3}
       propertyPath: m_Name
       value: M4A1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259613271308760964, guid: 85d7d17222ade344eaa5de35d0eb1817,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

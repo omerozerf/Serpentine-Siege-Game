@@ -140,7 +140,7 @@ namespace _Managers
 
         private void BalanceFireRate()
         {
-            int random = Random.Range(-15, 26);
+            int random = Random.Range(-50, 15);
             
             SetFireRate(0, random);
             
@@ -177,7 +177,12 @@ namespace _Managers
 
         private void BalanceDamage()
         {
-            int random = Random.Range(-1, 2);
+            int random = Random.Range(-1, 3);
+
+            if (random == 0)
+            {
+                random = 1;
+            }
             
             SetDamage(random, 0);
             
@@ -212,7 +217,7 @@ namespace _Managers
 
         private void BalanceMovementSpeed()
         {
-            int random = Random.Range(-35, 16);
+            int random = Random.Range(-15, 35);
             
             SetMovementSpeed(0, random);
             
@@ -282,7 +287,12 @@ namespace _Managers
 
         private void BalanceSoldierCount()
         {
-            int random = Random.Range(-1, 2);
+            int random = Random.Range(-1, 1);
+
+            if (random == 0)
+            {
+                random = -1;
+            }
             
             SetSoldierCount(random, 0);
             

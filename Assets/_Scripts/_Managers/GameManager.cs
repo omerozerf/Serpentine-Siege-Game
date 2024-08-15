@@ -9,6 +9,8 @@ namespace _Managers
 {
     public class GameManager : MonoBehaviour
     {
+        [SerializeField] private GameObject _winScreen;
+        
         public static event Action<float> OnEnemySpeedChanged;
         public static event Action<float> OnFireRateChanged; 
         
@@ -23,7 +25,7 @@ namespace _Managers
         private void Awake()
         {
             ms_Instance = this;
-            SetIsPaused(true);
+            // SetIsPaused(true);
             Application.targetFrameRate = 60;
             
             EnemyBodyPartCreateController.OnAllEnemyBodyPartsCreated += OnAllEnemyBodyPartsCreated;
@@ -36,7 +38,7 @@ namespace _Managers
         
         private async void OnAllEnemyBodyPartsCreated()
         {
-            SetIsPaused(false);
+            //             SetIsPaused(false);
         }
 
         public static GameManager GetInstance()
@@ -115,8 +117,7 @@ namespace _Managers
 
             if (ms_Instance.m_DeadEnemyCount == EnemyBodyPartCreateController.GetEnemyBodyPartCount())
             {
-                Debug.Log("WIN!");
-                
+                ms_Instance._winScreen.SetActive(true);
                 Time.timeScale = 0;
             }
         }

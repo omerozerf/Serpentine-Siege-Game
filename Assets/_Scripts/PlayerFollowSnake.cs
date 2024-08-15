@@ -10,6 +10,7 @@ public class PlayerFollowSnake : MonoBehaviour
     [SerializeField] private float _offSet;
     [SerializeField] private EnemyBodyPart _enemyBodyPartHead;
     [SerializeField] private float _speed;
+    [SerializeField] private GameObject _loseScreen;
     
     private float m_LastHeadZ;
     private bool m_IsFollowing;
@@ -54,7 +55,7 @@ public class PlayerFollowSnake : MonoBehaviour
 
         if (_enemyBodyPartHead.transform.position.z < transform.position.z)
         {
-            Debug.Log("Game Over");
+            _loseScreen.SetActive(true);
             Time.timeScale = 0;
         }
     }

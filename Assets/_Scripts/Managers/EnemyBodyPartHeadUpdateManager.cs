@@ -50,7 +50,7 @@ namespace Managers
             previousEnemyBodyPart.SetIsHead(false);
 
             enemyBodyPart.GetPathFollower().distanceTravelled =
-                previousEnemyBodyPart.GetPathFollower().distanceTravelled - 1.75f;
+                previousEnemyBodyPart.GetPathFollower().distanceTravelled - 2.15f;
         }
     }
 }
