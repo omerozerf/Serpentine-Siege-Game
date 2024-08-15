@@ -2,6 +2,7 @@
 using _Managers;
 using PathCreation;
 using PathCreation.Examples;
+using TMPro;
 using UnityEngine;
 
 namespace Enemys.EnemyBodyParts
@@ -12,6 +13,8 @@ namespace Enemys.EnemyBodyParts
         [SerializeField] private EnemyBodyPartHealthSystem _enemyBodyPartHealthSystem;
         [SerializeField] private PathFollower _pathFollower;
         [SerializeField] private bool _isHead;
+        [SerializeField] private TMP_Text _healthText;
+        [SerializeField] private bool _isMain;
 
         public static event Action<EnemyBodyPart> OnIsHeadDead; 
 
@@ -20,12 +23,14 @@ namespace Enemys.EnemyBodyParts
         private void Awake()
         {
             GameManager.OnEnemySpeedChanged += OnEnemySpeedChanged;
+            if (!_isMain) _enemyBodyPartHealthSystem.OnHealthChanged += OnHealthChanged;
             _pathFollower.speed = GameManager.GetEnemySpeed();
         }
 
         private void OnDestroy()
         {
             GameManager.OnEnemySpeedChanged -= OnEnemySpeedChanged;
+            if (!_isMain) _enemyBodyPartHealthSystem.OnHealthChanged -= OnHealthChanged;
         }
 
 
@@ -46,6 +51,11 @@ namespace Enemys.EnemyBodyParts
                 _pathFollower.speed = GameManager.GetEnemySpeed();
                 m_HasMinusSpeed = false;
             }
+        }
+        
+        private void OnHealthChanged(int health)
+        {
+            _healthText.text = health.ToString();
         }
 
         private void OnEnemySpeedChanged(float obj)

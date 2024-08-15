@@ -35,7 +35,7 @@ namespace Enemys.EnemyBodyParts
         }
 
         
-        private void SetHealth(int health)
+        public void SetHealth(int health)
         {
             _health = health;
             

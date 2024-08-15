@@ -115,7 +115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6745640172927867903
 Transform:
   m_ObjectHideFlags: 0
@@ -125,7 +125,7 @@ Transform:
   m_GameObject: {fileID: 1536478482603389676}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -245,7 +245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3995107567282767006
 Transform:
   m_ObjectHideFlags: 0
@@ -436,7 +436,7 @@ Transform:
   m_GameObject: {fileID: 5519180751890107827}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -606,7 +606,7 @@ Transform:
   m_GameObject: {fileID: 7863577924430940194}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999988, y: 0.50000024, z: 0.50000024, w: 0.49999976}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -687,6 +687,7 @@ GameObject:
   - component: {fileID: 4621212251855429793}
   - component: {fileID: 7163663420177610394}
   - component: {fileID: 4902791007578555897}
+  - component: {fileID: 4641348406580198925}
   m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -702,7 +703,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8179575329183729063}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -710,7 +711,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 360, z: 270}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0.25}
   m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &7163663420177610394
@@ -733,7 +734,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -6374943693256501753, guid: a2d9e0db9591d9a43ab055082584b249, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -777,8 +778,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a2d9e0db9591d9a43ab055082584b249, type: 2}
+  m_sharedMaterial: {fileID: -6374943693256501753, guid: a2d9e0db9591d9a43ab055082584b249,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -808,7 +810,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -847,6 +849,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 7163663420177610394}
   m_maskType: 0
+--- !u!114 &4641348406580198925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8179575329183729063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6654f74211dc4f1fb092766a6efe16ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9117428929720461223
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,6 +913,7 @@ MonoBehaviour:
   _enemyBodyPartHealthSystem: {fileID: -447276464375888093}
   _pathFollower: {fileID: -1763557895672397105}
   _isHead: 1
+  _healthText: {fileID: 4902791007578555897}
 --- !u!114 &-1763557895672397105
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,17 +12,6 @@ public class LookAtCamera : MonoBehaviour
 
     void Update()
     {
-        // Kameranın konumuna bakarak, X ekseninde döndürme yap
-        Vector3 direction = mainCamera.transform.position - transform.position;
-        
-        // Y ve Z eksenlerini sıfırla, sadece X eksenini kullan
-        direction.y = 0f;
-        direction.z = 0f;
-
-        // Yeni yönelimi hesapla
-        Quaternion rotation = Quaternion.LookRotation(direction);
-        
-        // Mevcut rotasyonu güncelle
-        transform.rotation = rotation;
+        transform.rotation = Quaternion.LookRotation(transform.position - mainCamera.transform.position);
     }
 }

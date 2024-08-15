@@ -3381,6 +3381,8 @@ MonoBehaviour:
   _enemyBodyPartHealthSystem: {fileID: 0}
   _pathFollower: {fileID: 117390280}
   _isHead: 1
+  _healthText: {fileID: 0}
+  _isMain: 1
 --- !u!1001 &121330569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50856,7 +50858,7 @@ Transform:
   m_GameObject: {fileID: 1801382687896713}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.53, z: 259.3}
+  m_LocalPosition: {x: 0, y: 1.06, z: 259.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

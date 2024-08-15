@@ -4,6 +4,7 @@ using Enemys.EnemyBodyParts;
 using PathCreation;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace _Controllers
 {
@@ -28,7 +29,89 @@ namespace _Controllers
             for (int index = 0; index < _enemyBodyPartCount; index++)
             {
                 // await UniTask.WaitForSeconds(0.715f);
-                CreateEnemyBodyPart(Vector3.one, Quaternion.identity, _enemyBodyPartsParent, index);
+                EnemyBodyPart enemyBodyPart = 
+                    CreateEnemyBodyPart(Vector3.one, Quaternion.identity, _enemyBodyPartsParent, index);
+
+                if (index < 5)
+                {
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(1, 3));
+                }
+                else if (index < 10)
+                {
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(3, 5));
+                }
+                else if (index < 15)
+                {
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(5, 7));
+                }
+                else if (index < 20)
+                {
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(7, 9));
+                }
+                else if (index < 25)
+                {
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(9, 11));
+                }
+                else if (index < 30)
+                {
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(11, 13));
+                }
+                else if (index < 35)
+                {
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(13, 15));
+                }
+                else if (index < 40)
+                {
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(15, 17));
+                }
+                else if (index < 45)
+                {
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(17, 19));
+                }
+                else if (index < 50)
+                {
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(19, 21));
+                }
+                else if (index < 55)
+                {
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(21, 23));
+                }
+                else if (index < 60)
+                {
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(23, 25));
+                }
+                else if (index < 65)
+                {
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(25, 27));
+                }
+                else if (index < 70)
+                {
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(27, 29));
+                }
+                else if (index < 75)
+                {
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(29, 31));
+                }
+                else if (index < 80)
+                {
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(31, 33));
+                }
+                else if (index < 85)
+                {
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(33, 35));
+                }
+                else if (index < 90)
+                {
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(35, 37));
+                }
+                else if (index < 95)
+                {
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(37, 39));
+                }
+                else if (index < 100)
+                {
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(39, 41));
+                }
             }
         }
 
