@@ -2,6 +2,7 @@
 using System.Collections;
 using _Managers;
 using Bullets;
+using Cysharp.Threading.Tasks;
 using Players;
 using UnityEngine;
 
@@ -18,8 +19,10 @@ public class BulletShooter : MonoBehaviour
         
     }
 
-    private void Start()
+    private async void Start()
     {
+        await UniTask.DelayFrame(1);
+        
         m_FireRate = GameManager.GetFireRate();
         StartCoroutine(ShootRoutine());
     }

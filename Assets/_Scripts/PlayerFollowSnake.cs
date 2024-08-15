@@ -43,7 +43,7 @@ public class PlayerFollowSnake : MonoBehaviour
         float currentHeadZ = _enemyBodyPartHead.transform.position.z;
         float distanceBetweenHeads = currentHeadZ - m_LastHeadZ;
         
-        if (distanceBetweenHeads > 15 && m_IsFollowing)
+        if (distanceBetweenHeads > 7.5 && m_IsFollowing)
         {
             m_IsFollowing = false;
             m_LastHeadZ = currentHeadZ;
