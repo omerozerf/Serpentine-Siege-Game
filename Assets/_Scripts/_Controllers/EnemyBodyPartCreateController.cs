@@ -29,42 +29,41 @@ namespace _Controllers
         {
             for (int index = 0; index < _enemyBodyPartCount; index++)
             {
-                // await UniTask.WaitForSeconds(0.715f);
                 EnemyBodyPart enemyBodyPart = 
                     CreateEnemyBodyPart(_enemyBodyPartsParent.transform.position, Quaternion.identity,
                         _enemyBodyPartsParent, index);
 
                 if (index < 10)
                 {
-                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(3, 5));
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(5, 10));
                 }
                 else if (index < 25)
                 {
-                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(3, 7));
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(5, 15));
                 }
                 else if (index < 30)
                 {
-                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(5, 9));
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(10, 25));
                 }
                 else if (index < 35)
                 {
-                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(7, 9));
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(15, 25));
                 }
                 else if (index < 40)
                 {
-                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(9, 11));
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(25, 30));
                 }
                 else if (index < 45)
                 {
-                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(11, 13));
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(30, 38));
                 }
                 else if (index < 46)
                 {
-                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(13, 15));
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(40, 45));
                 }
                 else if (index < 50)
                 {
-                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(15, 17));
+                    enemyBodyPart.GetEnemyBodyPartHealthSystem().SetHealth(Random.Range(45, 50));
                 }
                 else if (index < 55)
                 {

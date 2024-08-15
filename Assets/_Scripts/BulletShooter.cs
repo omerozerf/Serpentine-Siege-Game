@@ -54,6 +54,7 @@ public class BulletShooter : MonoBehaviour
         if(GameManager.GetIsPaused() || Player.GetPlayerFollowSnake().GetFirstFollow()) return;
             
         Bullet bullet = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, Quaternion.identity);
+        Destroy(bullet.gameObject, 5f);
     }
 
         

@@ -22,7 +22,7 @@ namespace Managers
             EnemyBodyPart.OnIsHeadDead += OnIsHeadDead;
             
             m_EnemyBodyPartList.Add(_enemyBodyPartHead);
-            _enemyBodyPartHead.GetPathFollower().distanceTravelled = 300;
+            _enemyBodyPartHead.GetPathFollower().distanceTravelled = 150;
         }
 
         private void OnDestroy()
@@ -50,7 +50,7 @@ namespace Managers
             previousEnemyBodyPart.SetIsHead(false);
 
             enemyBodyPart.GetPathFollower().distanceTravelled =
-                previousEnemyBodyPart.GetPathFollower().distanceTravelled - 2f;
+                previousEnemyBodyPart.GetPathFollower().distanceTravelled - 1.75f;
         }
     }
 }

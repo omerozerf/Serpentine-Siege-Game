@@ -961,6 +961,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightningFloorYellowTrail
       objectReference: {fileID: 0}
+    - target: {fileID: 403451880818506278, guid: e3abd25e879f6c449908b36b40006658,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3855980446263873716, guid: e3abd25e879f6c449908b36b40006658,
         type: 3}
       propertyPath: m_LocalPosition.x

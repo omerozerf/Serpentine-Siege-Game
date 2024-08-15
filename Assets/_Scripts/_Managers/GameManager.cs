@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using _Controllers;
 using Cysharp.Threading.Tasks;
 using Unity.VisualScripting;
@@ -22,11 +23,10 @@ namespace _Managers
         private void Awake()
         {
             ms_Instance = this;
+            SetIsPaused(true);
+            Application.targetFrameRate = 60;
+            
             EnemyBodyPartCreateController.OnAllEnemyBodyPartsCreated += OnAllEnemyBodyPartsCreated;
-            
-            // SetIsPaused(true);
-            
-            
         }
         
         private void OnDestroy()
@@ -36,7 +36,7 @@ namespace _Managers
         
         private async void OnAllEnemyBodyPartsCreated()
         {
-            // SetIsPaused(false);
+            SetIsPaused(false);
         }
 
         public static GameManager GetInstance()

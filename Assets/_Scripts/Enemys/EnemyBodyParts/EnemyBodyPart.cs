@@ -23,14 +23,18 @@ namespace Enemys.EnemyBodyParts
 
         private void Awake()
         {
-            GameManager.OnEnemySpeedChanged += OnEnemySpeedChanged;
             if (!_isMain) _enemyBodyPartHealthSystem.OnHealthChanged += OnHealthChanged;
-            _pathFollower.speed = GameManager.GetEnemySpeed();
 
             if (!_isMain)
             {
                 _healthText.color = _color;
             }
+        }
+
+        private void Start()
+        {
+            GameManager.OnEnemySpeedChanged += OnEnemySpeedChanged;
+            _pathFollower.speed = GameManager.GetEnemySpeed();
         }
 
         private void OnDestroy()
@@ -49,7 +53,7 @@ namespace Enemys.EnemyBodyParts
             
             if (!_enemyBodyPartCollision.IsPathBlocked() && !m_HasMinusSpeed)
             {
-                _pathFollower.speed = -25;
+                _pathFollower.speed = -15;
                 m_HasMinusSpeed = true;
             }
             if (_enemyBodyPartCollision.IsPathBlocked() && m_HasMinusSpeed)
