@@ -5429,7 +5429,7 @@ MonoBehaviour:
   - {fileID: 4584968033221901038, guid: 32596f25b63f2af4ea4024131d63ec85, type: 3}
   _enemyBodyPartsParent: {fileID: 633413865}
   _pathCreator: {fileID: 114462759382663819}
-  _enemyBodyPartCount: 99
+  _enemyBodyPartCount: 150
 --- !u!4 &198279460
 Transform:
   m_ObjectHideFlags: 0
@@ -8472,8 +8472,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _joystick: {fileID: 8135886327226300190}
   _moveSpeed: 7.5
-  _minX: -6.5
-  _maxX: 6.5
+  _minX: -8.5
+  _maxX: 8.5
   _minZ: -1
   _maxZ: 5
 --- !u!114 &349727444

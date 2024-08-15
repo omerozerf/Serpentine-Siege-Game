@@ -21,7 +21,7 @@ public class BulletShooter : MonoBehaviour
 
     private async void Start()
     {
-        await UniTask.DelayFrame(1);
+        await UniTask.DelayFrame(3);
         
         m_FireRate = GameManager.GetFireRate();
         StartCoroutine(ShootRoutine());
