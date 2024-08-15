@@ -12,6 +12,7 @@ namespace Players
 
 
         private Vector3 m_LastFramePosition;
+        private float m_Speed;
 
 
         private void Awake()
@@ -26,8 +27,10 @@ namespace Players
             var deltaPosition = position - m_LastFramePosition;
 
             var speed = Mathf.Abs(deltaPosition.z) > 0f ? 1f : 0f;
+
+            m_Speed = Mathf.Lerp(m_Speed, speed, Time.deltaTime * 15f);
             
-            SetSpeed(speed);
+            SetSpeed(m_Speed);
 
             m_LastFramePosition = position;
         }

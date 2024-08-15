@@ -4313,6 +4313,7 @@ GameObject:
   - component: {fileID: 349727445}
   - component: {fileID: 349727446}
   - component: {fileID: 349727447}
+  - component: {fileID: 349727448}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -4421,6 +4422,19 @@ MonoBehaviour:
   _enemyBodyPartHead: {fileID: 117390281}
   _speed: 1
   _loseScreen: {fileID: 1737825648}
+--- !u!114 &349727448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349727441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06736df860c6442bb0cce62bdb7f3da7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1909577263}
 --- !u!1001 &354281024
 PrefabInstance:
   m_ObjectHideFlags: 0
