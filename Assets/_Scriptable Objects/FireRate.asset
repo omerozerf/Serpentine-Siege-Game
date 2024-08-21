@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7a439b213e4313bbe7ad22a6a94ab2, type: 3}
+  m_Name: FireRate
+  m_EditorClassIdentifier: 
+  _powerUpHeader: Fire Rate
+  _powerUpDescription: 
+  _powerUpSprite: {fileID: 21300000, guid: 96c74ac77556ad64bacc7e8bb369d249, type: 3}
+  _powerUpType: 0
+  _fireRatePercentage: -25
+  _damageAmount: 0
+  _movementSpeedPercentage: 0
+  _enemySpeedPercentage: 0
+  _soldierCount: 0
